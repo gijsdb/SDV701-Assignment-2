@@ -1,0 +1,28 @@
+﻿<Page
+    x:Class="sdv701_customer_app.BlankPage1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:sdv701_customer_app"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Width="752">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <TextBlock HorizontalAlignment="Left" Margin="210,31,0,0" Text="Canon Models" TextWrapping="Wrap" VerticalAlignment="Top" Height="69" Width="353" FontSize="48" SelectionChanged="TextBlock_SelectionChanged"/>
+        <ListBox HorizontalAlignment="Left" Height="483" VerticalAlignment="Top" FontFamily="Segoe UI" Width="666" Margin="44,122,0,0" RequestedTheme="Default" Grid.Column="3">
+            <ListBoxItem Content="Canon70D        NZD800       DSLR"/>
+            <ListBoxItem Content="Canon600D       NZD400      DSLR"/>
+            <ListBoxItem Content="Canon1100D     NZD250      DSLR"/>
+            <ListBoxItem Content="Canon Pixa        NZD150      PointNShoot"/>
+        </ListBox>
+        <Button Content="Back" HorizontalAlignment="Left" Margin="44,625,0,0" VerticalAlignment="Top" Height="63" Width="126" Background="#FFDC9744" FontSize="36" FocusVisualPrimaryBrush="Black" Foreground="White"/>
+        <Button Content="Open camera details" HorizontalAlignment="Left" Margin="274,625,0,0" VerticalAlignment="Top" Height="63" Width="192" Background="#FF3A8F00" FontSize="18" FocusVisualPrimaryBrush="Black" Foreground="White"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="850,605,0,0" VerticalAlignment="Top" Width="100"/>
+        <TextBlock HorizontalAlignment="Left" Margin="44,95,0,0" Text="Model" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="155,95,0,0" Text="Price" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="244,95,0,0" Text="Type" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Button Content="Sort" HorizontalAlignment="Left" Margin="520,640,0,0" VerticalAlignment="Top"/>
+        <ComboBox HorizontalAlignment="Left" Margin="573,640,0,0" VerticalAlignment="Top" Width="137" PlaceholderText="Sort by" Height="33"/>
+
+    </Grid>
+</Page>
