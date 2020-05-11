@@ -28,28 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lstCameraBrands = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.btnViewOrders = new System.Windows.Forms.Button();
+            this.btnViewModels = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // listBox1
+            // lstCameraBrands
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 25;
-            this.listBox1.Items.AddRange(new object[] {
-            "Canon",
-            "Nikon",
-            "Leica",
-            "Sony",
-            "Panasonic",
-            "FujiFilm"});
-            this.listBox1.Location = new System.Drawing.Point(12, 58);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(242, 529);
-            this.listBox1.TabIndex = 0;
+            this.lstCameraBrands.FormattingEnabled = true;
+            this.lstCameraBrands.ItemHeight = 25;
+            this.lstCameraBrands.Location = new System.Drawing.Point(12, 58);
+            this.lstCameraBrands.Name = "lstCameraBrands";
+            this.lstCameraBrands.Size = new System.Drawing.Size(242, 529);
+            this.lstCameraBrands.TabIndex = 0;
+            this.lstCameraBrands.SelectedIndexChanged += new System.EventHandler(this.lstCameraBrands_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -60,45 +54,47 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Camera Brands";
             // 
-            // button2
+            // btnExit
             // 
-            this.button2.Location = new System.Drawing.Point(281, 534);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(113, 53);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Exit";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnExit.Location = new System.Drawing.Point(281, 534);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(113, 53);
+            this.btnExit.TabIndex = 3;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // button1
+            // btnViewOrders
             // 
-            this.button1.Location = new System.Drawing.Point(281, 450);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(113, 65);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "View orders";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnViewOrders.Location = new System.Drawing.Point(281, 450);
+            this.btnViewOrders.Name = "btnViewOrders";
+            this.btnViewOrders.Size = new System.Drawing.Size(113, 65);
+            this.btnViewOrders.TabIndex = 4;
+            this.btnViewOrders.Text = "View orders";
+            this.btnViewOrders.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnViewModels
             // 
-            this.button3.Location = new System.Drawing.Point(281, 362);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(113, 65);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "View models";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnViewModels.Location = new System.Drawing.Point(281, 362);
+            this.btnViewModels.Name = "btnViewModels";
+            this.btnViewModels.Size = new System.Drawing.Size(113, 65);
+            this.btnViewModels.TabIndex = 5;
+            this.btnViewModels.Text = "View models";
+            this.btnViewModels.UseVisualStyleBackColor = true;
             // 
             // frmBrands
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(444, 599);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnViewModels);
+            this.Controls.Add(this.btnViewOrders);
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.lstCameraBrands);
             this.Name = "frmBrands";
             this.Text = "CameraCo NZ";
+            this.Load += new System.EventHandler(this.frmBrands_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -106,11 +102,11 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lstCameraBrands;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button btnViewOrders;
+        private System.Windows.Forms.Button btnViewModels;
     }
 }
 

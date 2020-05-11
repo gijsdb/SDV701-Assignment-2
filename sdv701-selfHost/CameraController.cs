@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 
 namespace sdv701_selfHost
 {
-    public class clsCameraController : System.Web.Http.ApiController 
+    public class CameraController : System.Web.Http.ApiController 
     {
         public List<string> GetCameraBrands()
         {
-            DataTable lcResult = clsDbConnection.GetDataTable("SELECT camera_brand FROM tblCameraBrand", null);
+            Console.Write("Retrieving Camera Brands");
+            DataTable lcResult = clsDbConnection.GetDataTable("SELECT * FROM tblCameraBrand", null);
             List<string> lcCameraBrands = new List<string>();
             foreach (DataRow dr in lcResult.Rows)
                 lcCameraBrands.Add((string)dr[0]);
