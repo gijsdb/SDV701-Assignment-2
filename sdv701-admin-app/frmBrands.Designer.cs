@@ -43,7 +43,6 @@
             this.lstCameraBrands.Name = "lstCameraBrands";
             this.lstCameraBrands.Size = new System.Drawing.Size(242, 529);
             this.lstCameraBrands.TabIndex = 0;
-            this.lstCameraBrands.SelectedIndexChanged += new System.EventHandler(this.lstCameraBrands_SelectedIndexChanged);
             // 
             // label1
             // 

@@ -29,7 +29,8 @@ namespace sdv701_admin_app
                 lcModelFrm = new frmModels();
 
                 if (string.IsNullOrEmpty(prModelName))
-                    lcModelFrm.SetDetails(new clsModel());
+                    Console.WriteLine("hello");
+                // lcModelFrm.SetDetails(new clsModel());
                 else
                 {
                     _ModelList.Add(prModelName, lcModelFrm);
@@ -48,6 +49,7 @@ namespace sdv701_admin_app
             //SetDetails(await ServiceClient.GetArtistAsync(prArtistName));
         }
 
+        /*
         public void SetDetails(clsModel prModel)
         {
             //_Model = prModel;
@@ -58,6 +60,6 @@ namespace sdv701_admin_app
             //updateTitle(_Artist.ArtistList.GalleryName);
             //Show();
 
-        }
+        }*/
     }
 }
