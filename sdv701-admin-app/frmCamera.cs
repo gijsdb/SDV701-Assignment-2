@@ -12,9 +12,22 @@ namespace sdv701_admin_app
 {
     public partial class frmCamera : Form
     {
+        #region Constructer
         public frmCamera()
         {
             InitializeComponent();
         }
+        #endregion
+        
+        protected clsAllCameras _Camera;
+
+        #region Methods
+
+        #endregion
+
+        #region Buttons
+
+
+        #endregion
     }
 }

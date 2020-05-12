@@ -88,9 +88,36 @@ namespace sdv701_admin_app
 
         #endregion
 
+        #region buttons
+
         private void btnExit_Click(object sender, EventArgs e)
         {
             Hide();
         }
+
+        private void btnAddModel_Click(object sender, EventArgs e)
+        {
+            clsAllCameras lcCamera = new clsAllCameras();
+            switch (cbAddItemType.Text)
+            {
+                case "DSLR":
+                    lcCamera.camera_type = "DSLR";
+                    lcCamera.camera_brand = Brand.camera_brand;
+                    //frmDSLR.Run(lcCamera);
+                    break;
+                case "PointNShoot":
+                    lcCamera.camera_type = "PointNShoot";
+                    lcCamera.camera_brand = Brand.camera_brand;
+                    //frmPointNShoot.Run(lcCamera);
+                    break;
+                default:
+                    MessageBox.Show("Please select a camera type");
+                    break;
+            }
+            UpdateDisplay();
+        }
+
+        #endregion
+
     }
 }
