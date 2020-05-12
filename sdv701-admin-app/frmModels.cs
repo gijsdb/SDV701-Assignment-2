@@ -1,65 +1,91 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace sdv701_admin_app
 {
-    public partial class frmModels : Form
+    public sealed partial class frmModels : Form
     {
-
-        private static Dictionary<string, frmModels> _ModelList = new Dictionary<string, frmModels>();
-
-        public frmModels()
+        #region Singleton
+        public static readonly frmModels _Instance = new frmModels();
+        private frmModels()
         {
             InitializeComponent();
         }
-
-
-        public static void Run(string prModelName)
+        public static frmModels Instance
         {
-            frmModels lcModelFrm;
-            if (string.IsNullOrEmpty(prModelName) || !_ModelList.TryGetValue(prModelName, out lcModelFrm))
-            {
-                lcModelFrm = new frmModels();
+            get { return frmModels._Instance; }
+        }
 
-                if (string.IsNullOrEmpty(prModelName))
-                    Console.WriteLine("hello");
-                // lcModelFrm.SetDetails(new clsModel());
-                else
-                {
-                    _ModelList.Add(prModelName, lcModelFrm);
-                    lcModelFrm.refreshFormFromDB(prModelName);
-                }
+        #endregion
+
+        #region Data fields
+
+        private clsBrand _Brand;
+        private List<clsAllCameras> _ModelList;
+
+        public clsBrand Brand { get => _Brand; set => _Brand = value; }
+        public List<clsAllCameras> ModelList { get => _ModelList; set => _ModelList = value; }
+
+        #endregion
+
+        #region Methods
+
+        private void frmModels_Load(object sender, EventArgs e)
+        {
+           
+        }
+
+        public static void Run(string prBrandName)
+        {
+            if (string.IsNullOrEmpty(prBrandName))
+            {
+                Instance.SetDetails(new clsBrand());
             }
             else
             {
-                lcModelFrm.Show();
-                lcModelFrm.Activate();
+                Instance.refreshFormFromDB(prBrandName);
             }
+            Instance.Show();
         }
 
-        private async void refreshFormFromDB(string prArtistName)
+        private async void refreshFormFromDB(string prBrand)
         {
-            //SetDetails(await ServiceClient.GetArtistAsync(prArtistName));
+            SetDetails(await ServiceClient.GetBrandAsync(prBrand));
         }
 
-        /*
-        public void SetDetails(clsModel prModel)
+        public async void SetDetails(clsBrand prBrand)
         {
-            //_Model = prModel;
-            // txtName.Enabled = string.IsNullOrEmpty(_Artist.Name);
-            //UpdateForm();
-            //UpdateDisplay();
-            //frmMain.Instance.GalleryNameChanged += new frmMain.Notify(updateTitle);
-            //updateTitle(_Artist.ArtistList.GalleryName);
-            //Show();
+            Brand = prBrand;
+            ModelList = await ServiceClient.GetBrandModelObjectsAsync(Brand.camera_brand);
+            UpdateForm();
+            Show();
+        }
 
-        }*/
+        #endregion
+
+        #region Form updates
+
+        public void UpdateForm()
+        {
+            Text = Brand.camera_brand;
+            //txtDescription.Text = Model.description;
+            UpdateDisplay();
+        }
+
+        private async void UpdateDisplay()
+        {
+            lstCameraModels.DataSource = null;
+            ModelList = await ServiceClient.GetBrandModelObjectsAsync(Brand.camera_brand);
+            List<string> lcModelNames = new List<string>();
+            foreach (clsAllCameras item in ModelList)
+            {
+                lcModelNames.Add(item.model_name.ToString() + " " + item.price);
+            }
+            lstCameraModels.DataSource = lcModelNames;
+        }
+
+        #endregion
+
     }
 }

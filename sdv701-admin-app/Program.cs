@@ -16,7 +16,7 @@ namespace sdv701_admin_app
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmBrands());
+            Application.Run(frmBrands.Instance);
         }
     }
 }

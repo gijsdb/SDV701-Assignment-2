@@ -65,5 +65,11 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\sdv701-admin-app\sdv701-admin-app.csproj">
+      <Project>{B5CBAB17-4618-4166-BAEF-A17E863FE469}</Project>
+      <Name>sdv701-admin-app</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

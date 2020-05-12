@@ -12,11 +12,25 @@ namespace sdv701_admin_app
 {
     public sealed partial class frmBrands : Form
     {
-        private static readonly frmBrands _Instance = new frmBrands();
+        #region Singleton
 
-        public frmBrands()
+        private static readonly frmBrands _Instance = new frmBrands();
+        private frmBrands()
         {
             InitializeComponent();
+        }
+        public static frmBrands Instance
+        {
+            get { return frmBrands._Instance; }
+        }
+
+        #endregion
+
+        #region Methods
+
+        private void frmBrands_Load(object sender, EventArgs e)
+        {
+            UpdateDisplay();
         }
 
         public async void UpdateDisplay()
@@ -24,7 +38,7 @@ namespace sdv701_admin_app
             try
             {
                 lstCameraBrands.DataSource = null;
-                lstCameraBrands.DataSource = await ServiceClient.GetBrandsAsync();
+                lstCameraBrands.DataSource = await ServiceClient.GetBrandNamesAsync();
             }
             catch (Exception ex)
             {
@@ -32,35 +46,34 @@ namespace sdv701_admin_app
             }
 
         }
-        public static frmBrands Instance
+
+        private void OpenModelForm()
         {
-            get { return frmBrands._Instance; }
+            if (lstCameraBrands.SelectedItem != null)
+            {
+                frmModels.Run(lstCameraBrands.SelectedItem as string);
+            }
         }
+
+        #endregion
+
+
+        #region Form buttons
 
         private void btnExit_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void frmBrands_Load(object sender, EventArgs e)
-        {
-            UpdateDisplay();
-        }
+        #endregion
+
+        #region Other GUI components
 
         private void lstCameraBrands_DoubleClick(object sender, EventArgs e)
         {
-            string lcKey;
-
-            lcKey = Convert.ToString(lstCameraBrands.SelectedItem);
-            if (lcKey != null)
-                try
-                {
-                    //frmModels.Run(lstCameraBrands.SelectedItem as string);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "This should never occur");
-                }
+            OpenModelForm();
         }
+
+        #endregion   
     }
 }

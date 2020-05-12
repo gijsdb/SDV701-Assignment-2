@@ -64,9 +64,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(163, 25);
+            this.label1.Size = new System.Drawing.Size(200, 25);
             this.label1.TabIndex = 7;
-            this.label1.Text = "Camera Models";
+            this.label1.Text = "Camera Models for ";
             // 
             // comboBox1
             // 
@@ -117,6 +117,7 @@
             this.Controls.Add(this.lstCameraModels);
             this.Name = "frmModels";
             this.Text = "Camera Models";
+            this.Load += new System.EventHandler(this.frmModels_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

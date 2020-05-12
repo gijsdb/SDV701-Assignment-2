@@ -10,11 +10,44 @@ namespace sdv701_admin_app
 {
     class ServiceClient
     {
-        internal async static Task<List<string>> GetBrandsAsync()
+        #region Brand
+
+        // RETRIEVE 
+        // Used in frmBrands
+        internal async static Task<List<string>> GetBrandNamesAsync()
         {
             using (HttpClient lcHttpClient = new HttpClient())
                 return JsonConvert.DeserializeObject<List<string>>
-                    (await lcHttpClient.GetStringAsync("http://localhost:60064/api/camera/getcamerabrands"));
+                    (await lcHttpClient.GetStringAsync("http://localhost:60064/api/camera/getcamerabrand"));
         }
+
+        //used in frmModels
+        internal async static Task<clsBrand> GetBrandAsync(string prBrandName)
+        {
+            using (HttpClient lcHttpClient = new HttpClient())
+                return JsonConvert.DeserializeObject<clsBrand>
+                    (await lcHttpClient.GetStringAsync("http://localhost:60064/api/camera/getbrand?Name=" + prBrandName));
+        }
+
+        #endregion
+
+        #region Camera Models
+
+        internal async static Task<List<clsAllCameras>> GetBrandModelNamesAsync(string prBrandName)
+        {
+            using (HttpClient lcHttpClient = new HttpClient())
+                return JsonConvert.DeserializeObject<List<clsAllCameras>>
+                    (await lcHttpClient.GetStringAsync("http://localhost:60064/api/camera/getbrandmodels?Brand=" + prBrandName));
+        }
+
+        internal async static Task<List<clsAllCameras>> GetBrandModelObjectsAsync(string prBrandName)
+        {
+            using (HttpClient lcHttpClient = new HttpClient())
+                return JsonConvert.DeserializeObject<List<clsAllCameras>>
+                    (await lcHttpClient.GetStringAsync("http://localhost:60064/api/camera/getbrandmodelobjects?Brand=" + prBrandName));
+        }
+
+        #endregion
+
     }
 }
