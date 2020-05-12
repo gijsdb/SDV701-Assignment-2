@@ -55,11 +55,23 @@
     <Compile Include="frmBrands.Designer.cs">
       <DependentUpon>frmBrands.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCamera.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCamera.Designer.cs">
+      <DependentUpon>frmCamera.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmConfirmation.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmConfirmation.Designer.cs">
       <DependentUpon>frmConfirmation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDSLR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDSLR.Designer.cs">
+      <DependentUpon>frmDSLR.cs</DependentUpon>
     </Compile>
     <Compile Include="frmModels.cs">
       <SubType>Form</SubType>
@@ -73,12 +85,6 @@
     <Compile Include="frmOrders.Designer.cs">
       <DependentUpon>frmOrders.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmDSLR.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmDSLR.Designer.cs">
-      <DependentUpon>frmDSLR.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmPointNShoot.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,17 +97,20 @@
     <EmbeddedResource Include="frmBrands.resx">
       <DependentUpon>frmBrands.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCamera.resx">
+      <DependentUpon>frmCamera.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmConfirmation.resx">
       <DependentUpon>frmConfirmation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDSLR.resx">
+      <DependentUpon>frmDSLR.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmModels.resx">
       <DependentUpon>frmModels.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmOrders.resx">
       <DependentUpon>frmOrders.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmDSLR.resx">
-      <DependentUpon>frmDSLR.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPointNShoot.resx">
       <DependentUpon>frmPointNShoot.cs</DependentUpon>

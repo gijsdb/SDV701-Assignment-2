@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace sdv701_admin_app
 {
@@ -69,7 +70,7 @@ namespace sdv701_admin_app
         public void UpdateForm()
         {
             Text = Brand.camera_brand;
-            //txtDescription.Text = Model.description;
+            lblModelsFor.Text = "Showing models for brand " + Brand.camera_brand;
             UpdateDisplay();
         }
 
@@ -80,12 +81,16 @@ namespace sdv701_admin_app
             List<string> lcModelNames = new List<string>();
             foreach (clsAllCameras item in ModelList)
             {
-                lcModelNames.Add(item.model_name.ToString() + " " + item.price);
+                lcModelNames.Add(item.model_name.ToString() + "   " + item.price + "   " + item.camera_type);
             }
             lstCameraModels.DataSource = lcModelNames;
         }
 
         #endregion
 
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Hide();
+        }
     }
 }

@@ -74,6 +74,11 @@ namespace sdv701_admin_app
             OpenModelForm();
         }
 
-        #endregion   
+        #endregion
+
+        private void btnViewModels_Click(object sender, EventArgs e)
+        {
+            OpenModelForm();
+        }
     }
 }

@@ -3,19 +3,16 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace sdv701_admin_app
 {
-    public partial class frmDSLR : Form
+    public partial class frmDSLR : sdv701_admin_app.frmCamera
     {
         public frmDSLR()
         {
             InitializeComponent();
         }
-
     }
 }

@@ -81,6 +81,7 @@
             this.btnViewModels.TabIndex = 5;
             this.btnViewModels.Text = "View models";
             this.btnViewModels.UseVisualStyleBackColor = true;
+            this.btnViewModels.Click += new System.EventHandler(this.btnViewModels_Click);
             // 
             // frmBrands
             // 

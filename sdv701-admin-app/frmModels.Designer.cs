@@ -30,7 +30,7 @@
         {
             this.lstCameraModels = new System.Windows.Forms.ListBox();
             this.btnExit = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblModelsFor = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -58,15 +58,16 @@
             this.btnExit.TabIndex = 5;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // label1
+            // lblModelsFor
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(200, 25);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Camera Models for ";
+            this.lblModelsFor.AutoSize = true;
+            this.lblModelsFor.Location = new System.Drawing.Point(12, 18);
+            this.lblModelsFor.Name = "lblModelsFor";
+            this.lblModelsFor.Size = new System.Drawing.Size(200, 25);
+            this.lblModelsFor.TabIndex = 7;
+            this.lblModelsFor.Text = "Camera Models for ";
             // 
             // comboBox1
             // 
@@ -111,7 +112,7 @@
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblModelsFor);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.lstCameraModels);
@@ -127,7 +128,7 @@
 
         private System.Windows.Forms.ListBox lstCameraModels;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblModelsFor;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button3;
