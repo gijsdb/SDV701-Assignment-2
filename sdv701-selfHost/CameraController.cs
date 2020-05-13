@@ -81,6 +81,31 @@ namespace sdv701_selfHost
             else
                 return null;
         }
+
+        // Get ONE camera
+        public clsAllCameras GetCamera(string prCamId)
+        {
+            Dictionary<string, object> par = new Dictionary<string, object>(1);
+            par.Add("Id", prCamId);
+            DataTable lcResult =
+                clsDbConnection.GetDataTable("SELECT * FROM tblCameraModel WHERE model_name = @Id", par);
+            if (lcResult.Rows.Count > 0)
+                return new clsAllCameras()
+                {
+                    model_name = (string)lcResult.Rows[0]["model_name"],
+                    description = (string)lcResult.Rows[0]["description"],
+                    release_year = (DateTime)lcResult.Rows[0]["release_year"],
+                    quantity = (int)lcResult.Rows[0]["quantity"],
+                    price = (decimal)lcResult.Rows[0]["price"],
+                    lens_mount = lcResult.Rows[0]["lens_mount"] is DBNull ? "" : (string)lcResult.Rows[0]["lens_mount"],
+                    zoom_range = lcResult.Rows[0]["zoom_range"] is DBNull ? "" : (string)lcResult.Rows[0]["zoom_range"],
+                    last_modified = (DateTime)lcResult.Rows[0]["last_modified"],
+                    camera_type = (string)lcResult.Rows[0]["camera_type"],
+                    camera_brand = (string)lcResult.Rows[0]["fk_camera_brand"]
+                };
+            else
+                return null;
+        }
         #endregion
 
     }

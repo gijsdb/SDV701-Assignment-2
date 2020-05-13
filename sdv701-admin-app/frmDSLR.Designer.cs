@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtLensMount = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label5
@@ -41,23 +41,23 @@
             this.label5.TabIndex = 54;
             this.label5.Text = "Lens mount";
             // 
-            // textBox4
+            // txtLensMount
             // 
-            this.textBox4.Location = new System.Drawing.Point(359, 157);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(191, 31);
-            this.textBox4.TabIndex = 55;
+            this.txtLensMount.Location = new System.Drawing.Point(359, 157);
+            this.txtLensMount.Name = "txtLensMount";
+            this.txtLensMount.Size = new System.Drawing.Size(191, 31);
+            this.txtLensMount.TabIndex = 55;
             // 
             // frmDSLR
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.ClientSize = new System.Drawing.Size(1004, 427);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txtLensMount);
             this.Controls.Add(this.label5);
             this.Name = "frmDSLR";
             this.Text = "DSLR";
             this.Controls.SetChildIndex(this.label5, 0);
-            this.Controls.SetChildIndex(this.textBox4, 0);
+            this.Controls.SetChildIndex(this.txtLensMount, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -66,6 +66,6 @@
         #endregion
 
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtLensMount;
     }
 }

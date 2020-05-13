@@ -94,6 +94,7 @@
             this.btnEditModel.TabIndex = 9;
             this.btnEditModel.Text = "Edit selected model";
             this.btnEditModel.UseVisualStyleBackColor = true;
+            this.btnEditModel.Click += new System.EventHandler(this.btnEditModel_Click);
             // 
             // btnDeleteModel
             // 

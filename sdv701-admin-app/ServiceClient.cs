@@ -33,6 +33,7 @@ namespace sdv701_admin_app
 
         #region Camera Models
 
+        // Only retrieve names
         internal async static Task<List<clsAllCameras>> GetBrandModelNamesAsync(string prBrandName)
         {
             using (HttpClient lcHttpClient = new HttpClient())
@@ -40,6 +41,7 @@ namespace sdv701_admin_app
                     (await lcHttpClient.GetStringAsync("http://localhost:60064/api/camera/getbrandmodels?Brand=" + prBrandName));
         }
 
+        // All cameras by brand
         internal async static Task<List<clsAllCameras>> GetBrandModelObjectsAsync(string prBrandName)
         {
             using (HttpClient lcHttpClient = new HttpClient())
@@ -47,6 +49,13 @@ namespace sdv701_admin_app
                     (await lcHttpClient.GetStringAsync("http://localhost:60064/api/camera/getbrandmodelobjects?Brand=" + prBrandName));
         }
 
+        // Specific camera by ID
+        internal async static Task<clsAllCameras> GetCameraAsync(string camera_model)
+        {
+            using (HttpClient lcHttpClient = new HttpClient())
+                return JsonConvert.DeserializeObject<clsAllCameras>
+                    (await lcHttpClient.GetStringAsync("http://localhost:60064/api/camera/getcamera?Model=" + camera_model));
+        }
         #endregion
 
     }

@@ -63,6 +63,22 @@ namespace sdv701_admin_app
             Show();
         }
 
+        private void OpenCameraForm(clsAllCameras prCamera)
+        {
+            if (prCamera != null)
+            {
+                switch (prCamera.camera_type)
+                {
+                    case "DSLR":
+                        frmDSLR.Run(prCamera);
+                        break;
+                    case "PointNShoot":
+                        //frmPointNShoot.Run(prCamera);
+                        break;
+                }
+            }
+        }
+
         #endregion
 
         #region Form updates
@@ -103,7 +119,7 @@ namespace sdv701_admin_app
                 case "DSLR":
                     lcCamera.camera_type = "DSLR";
                     lcCamera.camera_brand = Brand.camera_brand;
-                    //frmDSLR.Run(lcCamera);
+                    frmDSLR.Run(lcCamera);
                     break;
                 case "PointNShoot":
                     lcCamera.camera_type = "PointNShoot";
@@ -117,7 +133,15 @@ namespace sdv701_admin_app
             UpdateDisplay();
         }
 
-        #endregion
+        private async void btnEditModel_Click(object sender, EventArgs e)
+        {
+            string lcCameraId = ModelList[lstCameraModels.SelectedIndex].model_name.ToString();
+            MessageBox.Show(lcCameraId);
+            // API request not working, no action on controller.
+            //clsAllCameras lcCamera = await ServiceClient.GetCameraAsync(lcCameraId);
+            //OpenCameraForm(lcCamera);
+        }
 
+        #endregion
     }
 }

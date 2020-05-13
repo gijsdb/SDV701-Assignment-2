@@ -22,7 +22,20 @@ namespace sdv701_admin_app
         #region Methods
         public static void Run(clsAllCameras prCamera)
         {
-            //Instance.SetDetails(prCamera);
+            Instance.SetDetails(prCamera);
+        }
+        #endregion
+
+        #region Updates 
+        protected override void PushData()
+        {
+            base.PushData();            
+        }
+
+        protected override void UpdateForm()
+        {
+            base.UpdateForm();
+            txtLensMount.Text = _Camera.lens_mount;
         }
         #endregion
     }
