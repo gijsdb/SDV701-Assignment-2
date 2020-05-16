@@ -51,7 +51,7 @@ namespace sdv701_selfHost
             return lcNames;
         }
 
-        // For getting the objects 
+        // For getting all the objects 
         public List<clsAllCameras> GetBrandModelObjects(string Brand)
         {
             Dictionary<string, object> par = new Dictionary<string, object>(1);
@@ -106,6 +106,36 @@ namespace sdv701_selfHost
             else
                 return null;
         }
+        #endregion
+
+        #region Orders
+        public List<clsOrder> GetOrders()
+        {
+            DataTable lcResult = clsDbConnection.GetDataTable("SELECT * FROM tblOrder", null);
+
+            List<clsOrder> lcOrderList = new List<clsOrder>();
+
+            if (lcResult.Rows.Count > 0)
+            {
+                foreach (DataRow dr in lcResult.Rows)
+                {
+                    clsOrder lcOrder = new clsOrder();
+                    lcOrder.order_id = Convert.ToInt32(dr["order_id"]);
+                    lcOrder.order_date = (DateTime)dr["order_date"];
+                    lcOrder.customer_name = (string)dr["customer_name"];
+                    lcOrder.customer_address = (string)dr["customer_address"];
+                    lcOrder.price = (decimal)dr["price"];
+                    lcOrder.quantity = Convert.ToInt32(dr["quantity"]);
+                    lcOrder.model_name = (string)dr["fk_model_name"];
+                    lcOrderList.Add(lcOrder);
+                }
+                return lcOrderList;
+            }
+            else
+                return null;
+        }
+
+
         #endregion
 
     }

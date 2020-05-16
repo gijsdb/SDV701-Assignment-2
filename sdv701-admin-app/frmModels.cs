@@ -138,7 +138,7 @@ namespace sdv701_admin_app
             string lcCameraId = ModelList[lstCameraModels.SelectedIndex].model_name.ToString();
             MessageBox.Show(lcCameraId);
             // API request not working, no action on controller.
-            //clsAllCameras lcCamera = await ServiceClient.GetCameraAsync(lcCameraId);
+            clsAllCameras lcCamera = await ServiceClient.GetCameraAsync(lcCameraId);
             //OpenCameraForm(lcCamera);
         }
 

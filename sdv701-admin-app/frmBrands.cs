@@ -65,6 +65,17 @@ namespace sdv701_admin_app
             Close();
         }
 
+        private void btnViewModels_Click(object sender, EventArgs e)
+        {
+            OpenModelForm();
+        }
+
+        private void btnViewOrders_Click(object sender, EventArgs e)
+        {
+            frmOrders.Instance.Show();
+            UpdateDisplay();
+        }
+
         #endregion
 
         #region Other GUI components
@@ -76,9 +87,5 @@ namespace sdv701_admin_app
 
         #endregion
 
-        private void btnViewModels_Click(object sender, EventArgs e)
-        {
-            OpenModelForm();
-        }
     }
 }

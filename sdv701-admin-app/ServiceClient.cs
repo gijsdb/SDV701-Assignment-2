@@ -58,5 +58,14 @@ namespace sdv701_admin_app
         }
         #endregion
 
+        #region Orders
+        internal async static Task<List<clsOrder>> GetOrdersAsync()
+        {
+            using (HttpClient lcHttpClient = new HttpClient())
+                return JsonConvert.DeserializeObject<List<clsOrder>>
+                    (await lcHttpClient.GetStringAsync("http://localhost:60064/api/camera/GetOrders"));
+        }
+        #endregion
+
     }
 }

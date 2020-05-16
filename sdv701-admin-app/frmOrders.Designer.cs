@@ -28,23 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lstOrders = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.lblTotalValue = new System.Windows.Forms.Label();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // listBox1
+            // lstOrders
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 25;
-            this.listBox1.Items.AddRange(new object[] {
+            this.lstOrders.FormattingEnabled = true;
+            this.lstOrders.ItemHeight = 25;
+            this.lstOrders.Items.AddRange(new object[] {
             "OrderID   Model   Price   Description   CustomerName"});
-            this.listBox1.Location = new System.Drawing.Point(12, 62);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(569, 304);
-            this.listBox1.TabIndex = 2;
+            this.lstOrders.Location = new System.Drawing.Point(12, 62);
+            this.lstOrders.Name = "lstOrders";
+            this.lstOrders.Size = new System.Drawing.Size(569, 304);
+            this.lstOrders.TabIndex = 2;
             // 
             // label1
             // 
@@ -55,45 +55,47 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Orders";
             // 
-            // label2
+            // lblTotalValue
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(604, 62);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(185, 25);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Total orders value";
+            this.lblTotalValue.AutoSize = true;
+            this.lblTotalValue.Location = new System.Drawing.Point(604, 62);
+            this.lblTotalValue.Name = "lblTotalValue";
+            this.lblTotalValue.Size = new System.Drawing.Size(185, 25);
+            this.lblTotalValue.TabIndex = 4;
+            this.lblTotalValue.Text = "Total orders value";
             // 
-            // button1
+            // btnDelete
             // 
-            this.button1.Location = new System.Drawing.Point(636, 232);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(113, 65);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Delete Order";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnDelete.Location = new System.Drawing.Point(636, 232);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(113, 65);
+            this.btnDelete.TabIndex = 8;
+            this.btnDelete.Text = "Delete Order";
+            this.btnDelete.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnClose
             // 
-            this.button2.Location = new System.Drawing.Point(636, 313);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(113, 53);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Back";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnClose.Location = new System.Drawing.Point(636, 313);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(113, 53);
+            this.btnClose.TabIndex = 7;
+            this.btnClose.Text = "Back";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // frmOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(814, 390);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.lblTotalValue);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.lstOrders);
             this.Name = "frmOrders";
             this.Text = "Current Orders";
+            this.Load += new System.EventHandler(this.frmOrders_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -101,10 +103,10 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lstOrders;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label lblTotalValue;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnClose;
     }
 }
