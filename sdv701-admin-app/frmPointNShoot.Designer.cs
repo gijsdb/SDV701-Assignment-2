@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtZoomRange = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label5
@@ -41,23 +41,23 @@
             this.label5.TabIndex = 54;
             this.label5.Text = "Zoom Range";
             // 
-            // textBox4
+            // txtZoomRange
             // 
-            this.textBox4.Location = new System.Drawing.Point(359, 157);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(191, 31);
-            this.textBox4.TabIndex = 55;
+            this.txtZoomRange.Location = new System.Drawing.Point(359, 157);
+            this.txtZoomRange.Name = "txtZoomRange";
+            this.txtZoomRange.Size = new System.Drawing.Size(191, 31);
+            this.txtZoomRange.TabIndex = 55;
             // 
             // frmPointNShoot
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.ClientSize = new System.Drawing.Size(1004, 427);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txtZoomRange);
             this.Controls.Add(this.label5);
             this.Name = "frmPointNShoot";
             this.Text = "PointNShoot";
             this.Controls.SetChildIndex(this.label5, 0);
-            this.Controls.SetChildIndex(this.textBox4, 0);
+            this.Controls.SetChildIndex(this.txtZoomRange, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -66,6 +66,6 @@
         #endregion
 
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtZoomRange;
     }
 }

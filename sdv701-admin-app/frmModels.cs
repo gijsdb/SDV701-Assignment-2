@@ -73,7 +73,7 @@ namespace sdv701_admin_app
                         frmDSLR.Run(prCamera);
                         break;
                     case "PointNShoot":
-                        //frmPointNShoot.Run(prCamera);
+                        frmPointNShoot.Run(prCamera);
                         break;
                 }
             }
@@ -135,11 +135,11 @@ namespace sdv701_admin_app
 
         private async void btnEditModel_Click(object sender, EventArgs e)
         {
-            string lcCameraId = ModelList[lstCameraModels.SelectedIndex].model_name.ToString();
-            MessageBox.Show(lcCameraId);
+            string model_name = ModelList[lstCameraModels.SelectedIndex].model_name.ToString();
+            MessageBox.Show(model_name);
             // API request not working, no action on controller.
-            clsAllCameras lcCamera = await ServiceClient.GetCameraAsync(lcCameraId);
-            //OpenCameraForm(lcCamera);
+            clsAllCameras lcCamera = await ServiceClient.GetCameraAsync(model_name);
+            OpenCameraForm(lcCamera);
         }
 
         #endregion

@@ -54,7 +54,7 @@ namespace sdv701_admin_app
         {
             using (HttpClient lcHttpClient = new HttpClient())
                 return JsonConvert.DeserializeObject<clsAllCameras>
-                    (await lcHttpClient.GetStringAsync("http://localhost:60064/api/camera/getcamera?Model=" + camera_model));
+                    (await lcHttpClient.GetStringAsync("http://localhost:60064/api/camera/getcamera?camera_model=" + camera_model));
         }
         #endregion
 
