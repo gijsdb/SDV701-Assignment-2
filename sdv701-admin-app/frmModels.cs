@@ -95,9 +95,12 @@ namespace sdv701_admin_app
             lstCameraModels.DataSource = null;
             ModelList = await ServiceClient.GetBrandModelObjectsAsync(Brand.camera_brand);
             List<string> lcModelNames = new List<string>();
-            foreach (clsAllCameras item in ModelList)
+            if(ModelList != null)
             {
-                lcModelNames.Add(item.model_name.ToString() + "   " + item.price + "   " + item.camera_type);
+                foreach (clsAllCameras item in ModelList)
+                {
+                    lcModelNames.Add(item.model_name.ToString() + "   " + item.price + "   " + item.camera_type);
+                }
             }
             lstCameraModels.DataSource = lcModelNames;
         }
@@ -136,12 +139,15 @@ namespace sdv701_admin_app
         private async void btnEditModel_Click(object sender, EventArgs e)
         {
             string model_name = ModelList[lstCameraModels.SelectedIndex].model_name.ToString();
-            MessageBox.Show(model_name);
-            // API request not working, no action on controller.
             clsAllCameras lcCamera = await ServiceClient.GetCameraAsync(model_name);
             OpenCameraForm(lcCamera);
         }
 
+        private async void btnDeleteModel_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(await ServiceClient.DeleteCameraAsync(ModelList[lstCameraModels.SelectedIndex].model_name));
+            UpdateDisplay();
+        }
         #endregion
     }
 }

@@ -105,6 +105,30 @@ namespace sdv701_selfHost
             else
                 return null;
         }
+
+        // Delete camera frmModels
+        public string DeleteCamera(string Id)
+        {
+            Dictionary<string, object> par = new Dictionary<string, object>(1);
+            par.Add("Id", Id);
+            try
+            {
+                int lcDisableFk = clsDbConnection.Execute(
+                    "alter table tblOrder nocheck constraint all", null);
+                int lcRecCount = clsDbConnection.Execute(
+                    "DELETE FROM tblCameraModel WHERE model_name = @Id", par);
+                int lcEnableFk = clsDbConnection.Execute(
+                    "alter table tblOrder check constraint all", null);
+                if (lcRecCount == 1)
+                    return "Camera Deleted.";
+                else
+                    return "Could not find camera to delete.";
+            }
+            catch (Exception ex)
+            {
+                return ex.GetBaseException().Message;
+            }
+        }
         #endregion
 
         #region Orders

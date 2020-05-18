@@ -104,6 +104,7 @@
             this.btnDeleteModel.TabIndex = 10;
             this.btnDeleteModel.Text = "Delete selected model";
             this.btnDeleteModel.UseVisualStyleBackColor = true;
+            this.btnDeleteModel.Click += new System.EventHandler(this.btnDeleteModel_Click);
             // 
             // frmModels
             // 

@@ -56,6 +56,18 @@ namespace sdv701_admin_app
                 return JsonConvert.DeserializeObject<clsAllCameras>
                     (await lcHttpClient.GetStringAsync("http://localhost:60064/api/camera/getcamera?camera_model=" + camera_model));
         }
+
+        // Delete camera on frmModels
+        internal async static Task<string> DeleteCameraAsync(string prId)
+        {
+            using (HttpClient lcHttpClient = new HttpClient())
+            {
+                HttpResponseMessage lcRespMessage = await lcHttpClient.DeleteAsync
+                    ($"http://localhost:60064/api/camera/DeleteCamera?Id={prId}");
+                return await lcRespMessage.Content.ReadAsStringAsync();
+            }
+
+        }
         #endregion
 
         #region Orders
