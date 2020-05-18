@@ -158,7 +158,32 @@ namespace sdv701_selfHost
                 return null;
         }
 
-
+        public string DeleteOrder(string Id)
+        {
+            Dictionary<string, object> par = new Dictionary<string, object>(1);
+            par.Add("Id", Id);
+            try
+            {
+                /*
+                int lcDisableFk = clsDbConnection.Execute(
+                    "alter table tblOrder nocheck constraint all", null);
+                */
+                int lcRecCount = clsDbConnection.Execute(
+                    "DELETE FROM tblOrder WHERE order_id = @Id", par);
+                /*
+                int lcEnableFk = clsDbConnection.Execute(
+                    "alter table tblOrder check constraint all", null);
+               */
+                if (lcRecCount == 1)
+                    return "Order Deleted.";
+                else
+                    return "Could not find order to delete.";
+            }
+            catch (Exception ex)
+            {
+                return ex.GetBaseException().Message;
+            }
+        }
         #endregion
 
     }

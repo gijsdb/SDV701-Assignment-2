@@ -39,11 +39,18 @@ namespace sdv701_admin_app
         {
             Hide();
         }
+
+        private async void btnDelete_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(await ServiceClient.DeleteOrderAsync(OrderList[lstOrders.SelectedIndex].order_id.ToString()));
+            UpdateDisplay();
+        }
         #endregion
 
         #region updates
         public async void UpdateDisplay()
         {
+            TotalValue = 0;
             lstOrders.DataSource = null;
             lstOrders.DataSource = await ServiceClient.GetOrdersAsync();
 
@@ -59,5 +66,7 @@ namespace sdv701_admin_app
             lstOrders.DataSource = lcOrderEntry;
         }
         #endregion
+
+        
     }
 }

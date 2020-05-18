@@ -71,11 +71,24 @@ namespace sdv701_admin_app
         #endregion
 
         #region Orders
+        //Retrieve the orders
         internal async static Task<List<clsOrder>> GetOrdersAsync()
         {
             using (HttpClient lcHttpClient = new HttpClient())
                 return JsonConvert.DeserializeObject<List<clsOrder>>
                     (await lcHttpClient.GetStringAsync("http://localhost:60064/api/camera/GetOrders"));
+        }
+
+        // Delete an order
+        internal async static Task<string> DeleteOrderAsync(string prId)
+        {
+            using (HttpClient lcHttpClient = new HttpClient())
+            {
+                HttpResponseMessage lcRespMessage = await lcHttpClient.DeleteAsync
+                    ($"http://localhost:60064/api/camera/DeleteOrder?Id={prId}");
+                return await lcRespMessage.Content.ReadAsStringAsync();
+            }
+
         }
         #endregion
 
