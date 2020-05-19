@@ -129,6 +129,24 @@ namespace sdv701_selfHost
                 return ex.GetBaseException().Message;
             }
         }
+
+        // Insert new camera 
+        public string PostCamera(clsAllCameras prCamera)
+        {
+            try
+            {
+                int lcRecCount = clsDbConnection.Execute(
+                    "INSERT INTO tblCameraModel(model_name, description, release_year, quantity, price, lens_mount, zoom_range, last_modified, camera_type, fk_camera_brand) VALUES (@model_name, @description, @release_year, @quantity, @price, @lens_mount, @zoom_range, @last_modified, @camera_type, @camera_brand)", PrepareItemParameters(prCamera)
+                );
+                return "One Camera Inserted.";
+            }
+            catch (Exception ex)
+            {
+                return ex.GetBaseException().Message;
+            }
+        }
+
+        // Update existing camera
         #endregion
 
         #region Orders
@@ -186,5 +204,22 @@ namespace sdv701_selfHost
         }
         #endregion
 
+        #region Other methods
+        private Dictionary<string, object> PrepareItemParameters(clsAllCameras prCamera)
+        {
+            Dictionary<string, object> par = new Dictionary<string, object>(10);
+            par.Add("model_name", prCamera.model_name);
+            par.Add("description", prCamera.description);
+            par.Add("release_year", prCamera.release_year);
+            par.Add("quantity", prCamera.quantity);
+            par.Add("price", prCamera.price);
+            par.Add("lens_mount", prCamera.lens_mount);
+            par.Add("zoom_range", prCamera.zoom_range);
+            par.Add("last_modified", prCamera.last_modified);
+            par.Add("camera_type", prCamera.camera_type);
+            par.Add("fk_camera_brand", prCamera.camera_brand);
+            return par;
+        }
+        #endregion
     }
 }

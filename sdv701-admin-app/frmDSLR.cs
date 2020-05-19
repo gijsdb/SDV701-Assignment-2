@@ -29,7 +29,8 @@ namespace sdv701_admin_app
         #region Updates 
         protected override void PushData()
         {
-            base.PushData();            
+            base.PushData();
+            _Camera.camera_type = "DSLR";
         }
 
         protected override void UpdateForm()

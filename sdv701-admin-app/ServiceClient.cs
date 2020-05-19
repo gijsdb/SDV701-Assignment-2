@@ -68,6 +68,14 @@ namespace sdv701_admin_app
             }
 
         }
+
+        //Insert new camera
+        internal async static Task<string> InsertCameraAsync(clsAllCameras prCamera)
+        {
+            return await InsertOrUpdateAsync(prCamera, "http://localhost:60064/api/camera/PostCamera", "POST");
+        }
+
+        // Update existing camera
         #endregion
 
         #region Orders
@@ -92,5 +100,17 @@ namespace sdv701_admin_app
         }
         #endregion
 
+        #region Others
+        private async static Task<string> InsertOrUpdateAsync<TItem>(TItem prItem, string prUrl, string prRequest)
+        {
+            using (HttpRequestMessage lcReqMessage = new HttpRequestMessage(new HttpMethod(prRequest), prUrl))
+            using (lcReqMessage.Content = new StringContent(JsonConvert.SerializeObject(prItem), Encoding.UTF8, "application/json"))
+            using (HttpClient lcHttpClient = new HttpClient())
+            {
+                HttpResponseMessage lcRespMessage = await lcHttpClient.SendAsync(lcReqMessage);
+                return await lcRespMessage.Content.ReadAsStringAsync();
+            }
+        }
+        #endregion
     }
 }

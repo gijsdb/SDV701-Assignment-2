@@ -43,6 +43,8 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.numStock = new System.Windows.Forms.NumericUpDown();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dtpReleaseYear = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numStock)).BeginInit();
             this.SuspendLayout();
@@ -50,7 +52,7 @@
             // lblLastModified
             // 
             this.lblLastModified.AutoSize = true;
-            this.lblLastModified.Location = new System.Drawing.Point(358, 247);
+            this.lblLastModified.Location = new System.Drawing.Point(358, 382);
             this.lblLastModified.Name = "lblLastModified";
             this.lblLastModified.Size = new System.Drawing.Size(120, 25);
             this.lblLastModified.TabIndex = 48;
@@ -81,7 +83,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(354, 211);
+            this.label6.Location = new System.Drawing.Point(352, 354);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(141, 25);
             this.label6.TabIndex = 43;
@@ -125,7 +127,7 @@
             // 
             // btnImage
             // 
-            this.btnImage.Location = new System.Drawing.Point(562, 341);
+            this.btnImage.Location = new System.Drawing.Point(599, 341);
             this.btnImage.Name = "btnImage";
             this.btnImage.Size = new System.Drawing.Size(113, 66);
             this.btnImage.TabIndex = 53;
@@ -136,7 +138,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(562, 20);
+            this.pictureBox1.Location = new System.Drawing.Point(599, 20);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(430, 306);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -145,7 +147,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(749, 354);
+            this.btnCancel.Location = new System.Drawing.Point(781, 354);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(113, 53);
             this.btnCancel.TabIndex = 51;
@@ -155,12 +157,13 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(868, 354);
+            this.btnSave.Location = new System.Drawing.Point(916, 354);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(113, 53);
             this.btnSave.TabIndex = 50;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // numStock
             // 
@@ -169,11 +172,30 @@
             this.numStock.Size = new System.Drawing.Size(120, 31);
             this.numStock.TabIndex = 54;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(354, 213);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(139, 25);
+            this.label5.TabIndex = 55;
+            this.label5.Text = "Release year";
+            // 
+            // dtpReleaseYear
+            // 
+            this.dtpReleaseYear.Location = new System.Drawing.Point(359, 241);
+            this.dtpReleaseYear.Name = "dtpReleaseYear";
+            this.dtpReleaseYear.Size = new System.Drawing.Size(200, 31);
+            this.dtpReleaseYear.TabIndex = 56;
+            this.dtpReleaseYear.Value = new System.DateTime(2020, 5, 19, 0, 0, 0, 0);
+            // 
             // frmCamera
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1004, 427);
+            this.ClientSize = new System.Drawing.Size(1056, 427);
+            this.Controls.Add(this.dtpReleaseYear);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.numStock);
             this.Controls.Add(this.btnImage);
             this.Controls.Add(this.pictureBox1);
@@ -212,5 +234,7 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.NumericUpDown numStock;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DateTimePicker dtpReleaseYear;
     }
 }

@@ -29,6 +29,7 @@ namespace sdv701_admin_app
         protected override void PushData()
         {
             base.PushData();
+            _Camera.camera_type = "PointNShoot"; 
         }
 
         protected override void UpdateForm()
