@@ -127,7 +127,7 @@ namespace sdv701_admin_app
                 case "PointNShoot":
                     lcCamera.camera_type = "PointNShoot";
                     lcCamera.camera_brand = Brand.camera_brand;
-                    //frmPointNShoot.Run(lcCamera);
+                    frmPointNShoot.Run(lcCamera);
                     break;
                 default:
                     MessageBox.Show("Please select a camera type");

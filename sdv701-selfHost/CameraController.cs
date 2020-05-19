@@ -217,7 +217,7 @@ namespace sdv701_selfHost
             par.Add("zoom_range", prCamera.zoom_range);
             par.Add("last_modified", prCamera.last_modified);
             par.Add("camera_type", prCamera.camera_type);
-            par.Add("fk_camera_brand", prCamera.camera_brand);
+            par.Add("camera_brand", prCamera.camera_brand);
             return par;
         }
         #endregion
