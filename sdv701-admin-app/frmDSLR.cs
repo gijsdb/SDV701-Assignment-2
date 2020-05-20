@@ -27,11 +27,19 @@ namespace sdv701_admin_app
         #endregion
 
         #region Updates 
-        protected override void PushData()
+        protected override bool PushData()
         {
-            _Camera.lens_mount = txtLensMount.Text;
-            _Camera.camera_type = "DSLR";
             base.PushData();
+            if(!base.PushData())
+            {
+                return false;
+            }
+            else
+            {
+                _Camera.lens_mount = txtLensMount.Text;
+                _Camera.camera_type = "DSLR";
+                return true;
+            }          
         }
 
         protected override void UpdateForm()

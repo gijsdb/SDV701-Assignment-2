@@ -63,30 +63,45 @@ namespace sdv701_admin_app
 
         private async void btnSave_Click(object sender, EventArgs e)
         {
-            PushData();
-            if (txtModelName.Enabled)
+            if(!PushData())
             {
-                MessageBox.Show(await ServiceClient.InsertCameraAsync(_Camera));
-                frmBrands.Instance.UpdateDisplay();
-                txtModelName.Enabled = false;
+                MessageBox.Show("There is an error with your input");
+                
+            } else
+            {
+                if (txtModelName.Enabled)
+                {
+                    MessageBox.Show(await ServiceClient.InsertCameraAsync(_Camera));
+                    frmBrands.Instance.UpdateDisplay();
+                    txtModelName.Enabled = false;
+                }
+                else
+                    MessageBox.Show(await ServiceClient.UpdateCameraAsync(_Camera));
+                Hide();
             }
-            else
-               MessageBox.Show(await ServiceClient.UpdateCameraAsync(_Camera));
+       
             frmModels.Instance.UpdateForm();
-            Hide();
+        
         }
         #endregion
 
         #region Updates
-        protected virtual void PushData()
+        protected virtual bool PushData()
         {
-            _Camera.camera_brand = lcBrand;
-            _Camera.model_name = txtModelName.Text;
-            _Camera.release_year = dtpReleaseYear.Value;
-            _Camera.description = txtDescription.Text;
-            _Camera.quantity = Convert.ToInt16(numStock.Value);
-            _Camera.last_modified = DateTime.Today;
-            _Camera.price = Convert.ToDecimal(txtPrice.Text);
+            try
+            {
+                _Camera.camera_brand = lcBrand;
+                _Camera.model_name = txtModelName.Text;
+                _Camera.release_year = dtpReleaseYear.Value;
+                _Camera.description = txtDescription.Text;
+                _Camera.quantity = Convert.ToInt16(numStock.Value);
+                _Camera.last_modified = DateTime.Today;
+                _Camera.price = Convert.ToDecimal(txtPrice.Text);
+                return true;
+            } catch(System.FormatException)
+            {
+                return false;
+            }
         }
 
         protected virtual void UpdateForm()

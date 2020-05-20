@@ -26,11 +26,19 @@ namespace sdv701_admin_app
         #endregion
 
         #region Updates
-        protected override void PushData()
+        protected override bool PushData()
         {
             base.PushData();
-            _Camera.camera_type = "PointNShoot";
-            _Camera.zoom_range = txtZoomRange.Text;
+            if (!base.PushData())
+            {
+                return false;
+            }
+            else
+            {
+                _Camera.camera_type = "PointNShoot";
+                _Camera.zoom_range = txtZoomRange.Text;
+                return true;
+            }           
         }
 
         protected override void UpdateForm()
