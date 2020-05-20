@@ -31,6 +31,7 @@ namespace sdv701_admin_app
             if (_Camera.model_name != null)
             {
                 txtModelName.Enabled = false;
+                lcBrand = prCamera.camera_brand;
             }
             else
             {
@@ -70,7 +71,7 @@ namespace sdv701_admin_app
                 txtModelName.Enabled = false;
             }
             else
-               // MessageBox.Show(await ServiceClient.UpdateItemAsync(_Item));
+               MessageBox.Show(await ServiceClient.UpdateCameraAsync(_Camera));
             frmModels.Instance.UpdateForm();
             Hide();
         }
@@ -84,7 +85,6 @@ namespace sdv701_admin_app
             _Camera.release_year = dtpReleaseYear.Value;
             _Camera.description = txtDescription.Text;
             _Camera.quantity = Convert.ToInt16(numStock.Value);
-            //_Camera.last_modified = Convert.ToDateTime(lblLastModified.Text);
             _Camera.last_modified = DateTime.Today;
             _Camera.price = Convert.ToDecimal(txtPrice.Text);
         }

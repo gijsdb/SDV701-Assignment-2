@@ -147,6 +147,22 @@ namespace sdv701_selfHost
         }
 
         // Update existing camera
+        public string PutCamera(clsAllCameras prCamera)
+        {
+            try
+            {
+                int lcRecCount = clsDbConnection.Execute(
+                    "UPDATE tblCameraModel SET model_name = @model_name, description = @description, release_year = @release_year, quantity = @quantity, price = @price, lens_mount = @lens_mount, zoom_range = @zoom_range, last_modified = @last_modified, camera_type = @camera_type, fk_camera_brand = @camera_brand WHERE model_name = @model_name", PrepareItemParameters(prCamera));
+                if (lcRecCount == 1)
+                    return "One Camera Updated.";
+                else
+                    return "Unexpected Camera Update Count.";
+            }
+            catch (Exception ex)
+            {
+                return ex.GetBaseException().Message;
+            }
+        }
         #endregion
 
         #region Orders

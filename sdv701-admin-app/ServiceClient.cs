@@ -76,6 +76,10 @@ namespace sdv701_admin_app
         }
 
         // Update existing camera
+        internal async static Task<string> UpdateCameraAsync(clsAllCameras prCamera)
+        {
+            return await InsertOrUpdateAsync(prCamera, "http://localhost:60064/api/camera/PutCamera", "PUT");
+        }
         #endregion
 
         #region Orders

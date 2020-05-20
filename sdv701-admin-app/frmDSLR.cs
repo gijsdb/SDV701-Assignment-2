@@ -29,9 +29,9 @@ namespace sdv701_admin_app
         #region Updates 
         protected override void PushData()
         {
-            base.PushData();
-            txtLensMount.Text = _Camera.lens_mount;
+            _Camera.lens_mount = txtLensMount.Text;
             _Camera.camera_type = "DSLR";
+            base.PushData();
         }
 
         protected override void UpdateForm()
