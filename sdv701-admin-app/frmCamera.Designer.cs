@@ -183,11 +183,13 @@
             // 
             // dtpReleaseYear
             // 
+            this.dtpReleaseYear.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpReleaseYear.Location = new System.Drawing.Point(359, 241);
             this.dtpReleaseYear.Name = "dtpReleaseYear";
+            this.dtpReleaseYear.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dtpReleaseYear.Size = new System.Drawing.Size(200, 31);
             this.dtpReleaseYear.TabIndex = 56;
-            this.dtpReleaseYear.Value = new System.DateTime(2020, 5, 19, 0, 0, 0, 0);
+            this.dtpReleaseYear.Value = new System.DateTime(2020, 5, 20, 0, 0, 0, 0);
             // 
             // frmCamera
             // 

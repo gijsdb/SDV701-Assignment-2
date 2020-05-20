@@ -30,6 +30,7 @@ namespace sdv701_admin_app
         protected override void PushData()
         {
             base.PushData();
+            txtLensMount.Text = _Camera.lens_mount;
             _Camera.camera_type = "DSLR";
         }
 

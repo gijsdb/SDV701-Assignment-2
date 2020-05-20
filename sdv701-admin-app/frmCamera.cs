@@ -84,15 +84,15 @@ namespace sdv701_admin_app
             _Camera.release_year = dtpReleaseYear.Value;
             _Camera.description = txtDescription.Text;
             _Camera.quantity = Convert.ToInt16(numStock.Value);
-            _Camera.last_modified = Convert.ToDateTime(lblLastModified.Text);
-            _Camera.price = Convert.ToInt16(txtPrice.Text);
-            MessageBox.Show(_Camera.camera_brand);
+            //_Camera.last_modified = Convert.ToDateTime(lblLastModified.Text);
+            _Camera.last_modified = DateTime.Today;
+            _Camera.price = Convert.ToDecimal(txtPrice.Text);
         }
 
         protected virtual void UpdateForm()
         {
-            txtModelName.Text = _Camera.model_name;
-            //dtpReleaseYear.Value = _Camera.release_year;
+            txtModelName.Text = _Camera.model_name;   
+            dtpReleaseYear.Value = _Camera.release_year.Date;
             txtDescription.Text = _Camera.description;
             numStock.Value = _Camera.quantity;
             lblLastModified.Text = Convert.ToString(_Camera.last_modified);

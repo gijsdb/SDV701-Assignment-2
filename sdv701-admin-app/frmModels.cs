@@ -122,11 +122,13 @@ namespace sdv701_admin_app
                 case "DSLR":
                     lcCamera.camera_type = "DSLR";
                     lcCamera.camera_brand = Brand.camera_brand;
+                    lcCamera.release_year = Convert.ToDateTime("20/05/20");
                     frmDSLR.Run(lcCamera);
                     break;
                 case "PointNShoot":
                     lcCamera.camera_type = "PointNShoot";
                     lcCamera.camera_brand = Brand.camera_brand;
+                    lcCamera.release_year = Convert.ToDateTime("20/05/20");
                     frmPointNShoot.Run(lcCamera);
                     break;
                 default:

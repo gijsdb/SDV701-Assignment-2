@@ -29,7 +29,8 @@ namespace sdv701_admin_app
         protected override void PushData()
         {
             base.PushData();
-            _Camera.camera_type = "PointNShoot"; 
+            _Camera.camera_type = "PointNShoot";
+            _Camera.zoom_range = txtZoomRange.Text;
         }
 
         protected override void UpdateForm()
