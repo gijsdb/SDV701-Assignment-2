@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsDTO.cs" />
+    <Compile Include="clsLstComparer.cs" />
     <Compile Include="frmBrands.cs">
       <SubType>Form</SubType>
     </Compile>

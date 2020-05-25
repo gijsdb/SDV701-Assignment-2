@@ -167,6 +167,51 @@ namespace sdv701_admin_app
             }
             UpdateDisplay();
         }
+
+        private ColumnHeader SortingColumn = null;
+        private void lstCameraModels_ColumnClick(object sender, ColumnClickEventArgs e)
+        {
+            ColumnHeader new_sorting_column = lstCameraModels.Columns[e.Column];
+
+            System.Windows.Forms.SortOrder sort_order;
+            if (SortingColumn == null)
+            {
+                sort_order = SortOrder.Ascending;
+            }
+            else
+            {
+                if (new_sorting_column == SortingColumn)
+                {
+                    if (SortingColumn.Text.StartsWith("> "))
+                    {
+                        sort_order = SortOrder.Descending;
+                    }
+                    else
+                    {
+                        sort_order = SortOrder.Ascending;
+                    }
+                }
+                else
+                {
+                    sort_order = SortOrder.Ascending;
+                }
+                SortingColumn.Text = SortingColumn.Text.Substring(2);
+            }
+
+            SortingColumn = new_sorting_column;
+            if (sort_order == SortOrder.Ascending)
+            {
+                SortingColumn.Text = "> " + SortingColumn.Text;
+            }
+            else
+            {
+                SortingColumn.Text = "< " + SortingColumn.Text;
+            }
+
+            lstCameraModels.ListViewItemSorter = new clsLstComparer(e.Column, sort_order);
+
+            lstCameraModels.Sort();
+        }
         #endregion
     }
 }

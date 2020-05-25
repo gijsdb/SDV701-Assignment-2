@@ -109,7 +109,6 @@
             this.colModelPrice});
             this.lstCameraModels.FullRowSelect = true;
             this.lstCameraModels.GridLines = true;
-            this.lstCameraModels.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lstCameraModels.HideSelection = false;
             this.lstCameraModels.Location = new System.Drawing.Point(17, 83);
             this.lstCameraModels.MultiSelect = false;
@@ -118,6 +117,7 @@
             this.lstCameraModels.TabIndex = 11;
             this.lstCameraModels.UseCompatibleStateImageBehavior = false;
             this.lstCameraModels.View = System.Windows.Forms.View.Details;
+            this.lstCameraModels.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(lstCameraModels_ColumnClick);
             // 
             // colModelName
             // 
