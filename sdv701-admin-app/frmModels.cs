@@ -144,14 +144,27 @@ namespace sdv701_admin_app
 
         private async void btnEditModel_Click(object sender, EventArgs e)
         {
-            string model_name = lstCameraModels.SelectedItems[0].Text;
-            clsAllCameras lcCamera = await ServiceClient.GetCameraAsync(model_name);
-            OpenCameraForm(lcCamera);
+            try
+            {
+                string model_name = lstCameraModels.SelectedItems[0].Text;
+                clsAllCameras lcCamera = await ServiceClient.GetCameraAsync(model_name);
+                OpenCameraForm(lcCamera);
+            } catch(System.ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("No camera selected");
+            }
         }
 
         private async void btnDeleteModel_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(await ServiceClient.DeleteCameraAsync(lstCameraModels.SelectedItems[0].Text));
+            try
+            {
+                MessageBox.Show(await ServiceClient.DeleteCameraAsync(lstCameraModels.SelectedItems[0].Text));
+            }
+            catch (System.ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("No camera selected");
+            }
             UpdateDisplay();
         }
         #endregion

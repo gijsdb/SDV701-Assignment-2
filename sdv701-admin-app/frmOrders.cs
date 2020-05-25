@@ -56,12 +56,15 @@ namespace sdv701_admin_app
 
             OrderList = await ServiceClient.GetOrdersAsync();
             List<string> lcOrderEntry = new List<string>();
-            
-            foreach (clsOrder order in OrderList)
+            if (OrderList != null)
             {
-                lcOrderEntry.Add(order.quantity.ToString() + " " + order.model_name + " @ " + order.price + " for " + order.customer_address);
-                TotalValue = TotalValue + order.price;
+                foreach (clsOrder order in OrderList)
+                {
+                    lcOrderEntry.Add(order.quantity.ToString() + " " + order.model_name + " @ " + order.price + " for " + order.customer_address);
+                    TotalValue = TotalValue + order.price;
+                }
             }
+            
             lblTotalValue.Text = "Total value: " + TotalValue.ToString();
             lstOrders.DataSource = lcOrderEntry;
         }
