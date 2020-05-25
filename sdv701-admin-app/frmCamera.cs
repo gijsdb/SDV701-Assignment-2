@@ -79,9 +79,10 @@ namespace sdv701_admin_app
                     MessageBox.Show(await ServiceClient.UpdateCameraAsync(_Camera));
                 Hide();
             }
-       
-            frmModels.Instance.UpdateForm();
-        
+
+            // Disabled because it updates the listview twice causing duplicates, this means data does 
+            // not update in listview after save.
+            // frmModels.Instance.UpdateForm();
         }
         #endregion
 

@@ -28,23 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lstCameraModels = new System.Windows.Forms.ListBox();
             this.btnExit = new System.Windows.Forms.Button();
             this.lblModelsFor = new System.Windows.Forms.Label();
             this.cbAddItemType = new System.Windows.Forms.ComboBox();
             this.btnAddModel = new System.Windows.Forms.Button();
             this.btnEditModel = new System.Windows.Forms.Button();
             this.btnDeleteModel = new System.Windows.Forms.Button();
+            this.lstCameraModels = new System.Windows.Forms.ListView();
+            this.colModelName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colModelType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colModelPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
-            // 
-            // lstCameraModels
-            // 
-            this.lstCameraModels.FormattingEnabled = true;
-            this.lstCameraModels.ItemHeight = 25;
-            this.lstCameraModels.Location = new System.Drawing.Point(12, 55);
-            this.lstCameraModels.Name = "lstCameraModels";
-            this.lstCameraModels.Size = new System.Drawing.Size(539, 529);
-            this.lstCameraModels.TabIndex = 1;
             // 
             // btnExit
             // 
@@ -75,6 +69,7 @@
             this.cbAddItemType.Name = "cbAddItemType";
             this.cbAddItemType.Size = new System.Drawing.Size(121, 33);
             this.cbAddItemType.TabIndex = 8;
+            this.cbAddItemType.Text = "DSLR";
             // 
             // btnAddModel
             // 
@@ -106,18 +101,52 @@
             this.btnDeleteModel.UseVisualStyleBackColor = true;
             this.btnDeleteModel.Click += new System.EventHandler(this.btnDeleteModel_Click);
             // 
+            // lstCameraModels
+            // 
+            this.lstCameraModels.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.colModelName,
+            this.colModelType,
+            this.colModelPrice});
+            this.lstCameraModels.FullRowSelect = true;
+            this.lstCameraModels.GridLines = true;
+            this.lstCameraModels.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.lstCameraModels.HideSelection = false;
+            this.lstCameraModels.Location = new System.Drawing.Point(17, 83);
+            this.lstCameraModels.MultiSelect = false;
+            this.lstCameraModels.Name = "lstCameraModels";
+            this.lstCameraModels.Size = new System.Drawing.Size(534, 501);
+            this.lstCameraModels.TabIndex = 11;
+            this.lstCameraModels.UseCompatibleStateImageBehavior = false;
+            this.lstCameraModels.View = System.Windows.Forms.View.Details;
+            // 
+            // colModelName
+            // 
+            this.colModelName.Text = "Model Name";
+            this.colModelName.Width = 148;
+            // 
+            // colModelType
+            // 
+            this.colModelType.Tag = "";
+            this.colModelType.Text = "Model Type";
+            this.colModelType.Width = 199;
+            // 
+            // colModelPrice
+            // 
+            this.colModelPrice.Text = "Model Price";
+            this.colModelPrice.Width = 150;
+            // 
             // frmModels
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(731, 597);
+            this.Controls.Add(this.lstCameraModels);
             this.Controls.Add(this.btnDeleteModel);
             this.Controls.Add(this.btnEditModel);
             this.Controls.Add(this.cbAddItemType);
             this.Controls.Add(this.lblModelsFor);
             this.Controls.Add(this.btnAddModel);
             this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.lstCameraModels);
             this.Name = "frmModels";
             this.Text = "Camera Models";
             this.Load += new System.EventHandler(this.frmModels_Load);
@@ -127,13 +156,15 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ListBox lstCameraModels;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Label lblModelsFor;
         private System.Windows.Forms.ComboBox cbAddItemType;
         private System.Windows.Forms.Button btnAddModel;
         private System.Windows.Forms.Button btnEditModel;
         private System.Windows.Forms.Button btnDeleteModel;
+        private System.Windows.Forms.ListView lstCameraModels;
+        private System.Windows.Forms.ColumnHeader colModelName;
+        private System.Windows.Forms.ColumnHeader colModelType;
+        private System.Windows.Forms.ColumnHeader colModelPrice;
     }
 }

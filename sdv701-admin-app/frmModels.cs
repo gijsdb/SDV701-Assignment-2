@@ -92,17 +92,21 @@ namespace sdv701_admin_app
 
         private async void UpdateDisplay()
         {
-            lstCameraModels.DataSource = null;
+            lstCameraModels.Items.Clear();
             ModelList = await ServiceClient.GetBrandModelObjectsAsync(Brand.camera_brand);
-            List<string> lcModelNames = new List<string>();
-            if(ModelList != null)
+            if (ModelList != null)
             {
                 foreach (clsAllCameras item in ModelList)
                 {
-                    lcModelNames.Add(item.model_name.ToString() + "   " + item.price + "   " + item.camera_type);
+                    ListViewItem lvi = new ListViewItem();
+                    lvi.Text = item.model_name;
+                    lvi.SubItems.Add(item.camera_type);
+                    lvi.SubItems.Add(item.price.ToString());
+                    lstCameraModels.Items.Add(lvi);
                 }
             }
-            lstCameraModels.DataSource = lcModelNames;
+            lstCameraModels.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            lstCameraModels.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
         #endregion
@@ -140,14 +144,14 @@ namespace sdv701_admin_app
 
         private async void btnEditModel_Click(object sender, EventArgs e)
         {
-            string model_name = ModelList[lstCameraModels.SelectedIndex].model_name.ToString();
+            string model_name = lstCameraModels.SelectedItems[0].Text;
             clsAllCameras lcCamera = await ServiceClient.GetCameraAsync(model_name);
             OpenCameraForm(lcCamera);
         }
 
         private async void btnDeleteModel_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(await ServiceClient.DeleteCameraAsync(ModelList[lstCameraModels.SelectedIndex].model_name));
+            MessageBox.Show(await ServiceClient.DeleteCameraAsync(lstCameraModels.SelectedItems[0].Text));
             UpdateDisplay();
         }
         #endregion
