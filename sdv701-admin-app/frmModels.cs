@@ -1,7 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Linq;
+
+/*
+    Author: Gijs de Blauw
+    Description: 
+        - Displays camera models, populates the list from API
+        - Starts the individual model form based on selection
+        - Can add, edit and delete models from here
+*/
 
 namespace sdv701_admin_app
 {

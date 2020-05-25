@@ -1,12 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+
+/*
+    Author: Gijs de Blauw
+    Description: 
+        - Displays camera models, retrieves from API
+        - Can navigate to view order form from here
+        - Can navigate to model form from here.
+*/
 
 namespace sdv701_admin_app
 {

@@ -1,10 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Newtonsoft.Json;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http;
+
+/*
+    Author: Gijs de Blauw
+    Description: 
+        - Used to communicate with SelfHost application
+        - Contains all interactions with backend.
+*/
 
 namespace sdv701_admin_app
 {

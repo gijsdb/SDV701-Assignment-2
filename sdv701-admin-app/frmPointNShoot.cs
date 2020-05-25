@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
+﻿
+/*
+    Author: Gijs de Blauw
+    Description: 
+        - Inherits from frmCamera
+        - Uses base methods and adds specific detail for PointNShoot
+*/
 
 namespace sdv701_admin_app
 {

@@ -1,12 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+
+/*
+    Author: Gijs de Blauw
+    Description: 
+        - Parent form for DSLR and PointNShoot 
+        - Has base methods for updating and pushing data
+        - Checks input before pushing data 
+        - Adds new items and updates existing through API
+*/
 
 namespace sdv701_admin_app
 {

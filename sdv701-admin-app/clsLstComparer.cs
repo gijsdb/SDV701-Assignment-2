@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-// Retrieved from http://csharphelper.com/blog/2014/09/sort-a-listview-using-the-column-you-click-in-c/
+/*
+    Retrieved from http://csharphelper.com/blog/2014/09/sort-a-listview-using-the-column-you-click-in-c/
+    Sorts a listview on collumn click by ascending and descending order.
+*/
 
 namespace sdv701_admin_app
 {
