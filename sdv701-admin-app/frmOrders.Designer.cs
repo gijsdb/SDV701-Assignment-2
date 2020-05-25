@@ -28,23 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lstOrders = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblTotalValue = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
+            this.lstOrders = new System.Windows.Forms.ListView();
+            this.colQuantity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colModelName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colCustAddress = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
-            // 
-            // lstOrders
-            // 
-            this.lstOrders.FormattingEnabled = true;
-            this.lstOrders.ItemHeight = 25;
-            this.lstOrders.Items.AddRange(new object[] {
-            "OrderID   Model   Price   Description   CustomerName"});
-            this.lstOrders.Location = new System.Drawing.Point(12, 62);
-            this.lstOrders.Name = "lstOrders";
-            this.lstOrders.Size = new System.Drawing.Size(569, 304);
-            this.lstOrders.TabIndex = 2;
             // 
             // label1
             // 
@@ -84,16 +78,58 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // lstOrders
+            // 
+            this.lstOrders.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.colQuantity,
+            this.colModelName,
+            this.colCustAddress,
+            this.colPrice,
+            this.colId});
+            this.lstOrders.FullRowSelect = true;
+            this.lstOrders.GridLines = true;
+            this.lstOrders.HideSelection = false;
+            this.lstOrders.Location = new System.Drawing.Point(17, 77);
+            this.lstOrders.MultiSelect = false;
+            this.lstOrders.Name = "lstOrders";
+            this.lstOrders.Size = new System.Drawing.Size(581, 301);
+            this.lstOrders.TabIndex = 9;
+            this.lstOrders.UseCompatibleStateImageBehavior = false;
+            this.lstOrders.View = System.Windows.Forms.View.Details;
+            // 
+            // colQuantity
+            // 
+            this.colQuantity.Text = "Quantity";
+            // 
+            // colModelName
+            // 
+            this.colModelName.Text = "Model Name";
+            this.colModelName.Width = 169;
+            // 
+            // colCustAddress
+            // 
+            this.colCustAddress.Text = "Customer Address";
+            this.colCustAddress.Width = 197;
+            // 
+            // colPrice
+            // 
+            this.colPrice.Text = "Price";
+            this.colPrice.Width = 151;
+            // 
+            // colId
+            // 
+            this.colId.Text = "ID";
+            // 
             // frmOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(814, 390);
+            this.Controls.Add(this.lstOrders);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblTotalValue);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.lstOrders);
             this.Name = "frmOrders";
             this.Text = "Current Orders";
             this.Load += new System.EventHandler(this.frmOrders_Load);
@@ -103,11 +139,15 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ListBox lstOrders;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblTotalValue;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.ListView lstOrders;
+        private System.Windows.Forms.ColumnHeader colQuantity;
+        private System.Windows.Forms.ColumnHeader colModelName;
+        private System.Windows.Forms.ColumnHeader colCustAddress;
+        private System.Windows.Forms.ColumnHeader colPrice;
+        private System.Windows.Forms.ColumnHeader colId;
     }
 }
