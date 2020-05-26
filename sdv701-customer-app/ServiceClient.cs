@@ -27,7 +27,12 @@ namespace sdv701_customer_app
         #endregion
 
         #region Models
-
+        internal async static Task<List<clsAllCameras>> GetBrandModelObjectsAsync(string prBrandName)
+        {
+            using (HttpClient lcHttpClient = new HttpClient())
+                return JsonConvert.DeserializeObject<List<clsAllCameras>>
+                    (await lcHttpClient.GetStringAsync("http://localhost:60064/api/camera/getbrandmodelobjects?Brand=" + prBrandName));
+        }
         #endregion
     }
 }
