@@ -64,7 +64,6 @@ namespace sdv701_customer_app
 
             try
             {
-                // Insert api call here
                 ModelList = await ServiceClient.GetBrandModelObjectsAsync(Brand.camera_brand);
 
                 if (ModelList != null)
@@ -79,6 +78,27 @@ namespace sdv701_customer_app
                 else
                 {
                     lblStatus.Text = "This brand does currently not contain camera models";
+                }
+            }
+            catch (Exception ex)
+            {
+                lblStatus.Text = ex.GetBaseException().Message;
+            }
+        }
+
+        public void OpenSelectedCamera()
+        {
+            try
+            {
+                string lcCameraType = ModelList[lstModels.SelectedIndex].camera_type;
+                string lcCameraId = ModelList[lstModels.SelectedIndex].model_name;
+
+                if(lcCameraType == "DSLR")
+                {
+                    Frame.Navigate(typeof(pgDSLR), lcCameraId);
+                } else
+                {
+                   Frame.Navigate(typeof(pgPointNShoot), lcCameraId);
                 }
             }
             catch (Exception ex)
@@ -103,6 +123,11 @@ namespace sdv701_customer_app
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(pgBrands));
+        }
+
+        private void btnOpenCamera_Click(object sender, RoutedEventArgs e)
+        {
+            OpenSelectedCamera();
         }
         #endregion
     }

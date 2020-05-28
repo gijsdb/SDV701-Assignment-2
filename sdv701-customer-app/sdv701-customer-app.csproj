@@ -96,6 +96,9 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="clsDTO.cs" />
+    <Compile Include="pgCamera.xaml.cs">
+      <DependentUpon>pgCamera.xaml</DependentUpon>
+    </Compile>
     <Compile Include="pgConfirmation.xaml.cs">
       <DependentUpon>pgConfirmation.xaml</DependentUpon>
     </Compile>
@@ -140,6 +143,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="pgCamera.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="pgConfirmation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

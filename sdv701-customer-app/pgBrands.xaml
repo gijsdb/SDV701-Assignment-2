@@ -15,14 +15,14 @@
         <TextBlock HorizontalAlignment="Left" Margin="209,33,0,0" Text="Camera Brands" TextWrapping="Wrap" VerticalAlignment="Top" Height="69" Width="353" FontSize="48"/>
 
         <ListBox x:Name="lstBrands" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Segoe UI" Width="666" Margin="44,122,0,0" DoubleTapped="lstBrands_DoubleTapped">
-            
+
         </ListBox>
 
-        <Button x:Name="btnViewModels" Content="View selected item" HorizontalAlignment="Center" Margin="0,465,0,0" VerticalAlignment="Top" Height="63" Width="140" Background="#FF3A8F00" FontSize="18" Foreground="White" Click="btnOpenSelectedModel_Click"/>
-       
+        <Button x:Name="btnViewModels" Content="View selected item" HorizontalAlignment="Center" Margin="0,375,0,0" VerticalAlignment="Top" Height="63" Width="302" Background="#FF3A8F00" FontSize="18" Foreground="White" Click="btnOpenSelectedModel_Click"/>
+
         <!-- <Button x:Name="btnExit" Content="Exit" HorizontalAlignment="Left" Margin="44,465,0,0" VerticalAlignment="Top" Height="63" Width="126" Background="#FFCC3030" FontSize="36" Foreground="White"/> !-->
-        
-        <TextBlock x:Name="lblStatus" Margin="561,477,43,0" Text="Status" TextWrapping="Wrap" VerticalAlignment="Top" Height="52" FontSize="15"/>
-        
+
+        <TextBlock x:Name="lblStatus" Margin="209,465,185,0" TextAlignment="Center" Text="Status" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" FontSize="15"/>
+
     </Grid>
 </Page>

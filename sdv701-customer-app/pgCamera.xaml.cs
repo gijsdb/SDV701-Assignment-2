@@ -20,35 +20,11 @@ namespace sdv701_customer_app
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public partial class pgDSLR : pgCamera
+    public abstract partial class pgCamera : Page
     {
-        #region Constructor
-        public pgDSLR()
+        public pgCamera()
         {
-            base.InitializeComponent();
-        }
-        #endregion
-
-        #region Methods
-
-        #endregion
-
-        #region Updates
-
-        #endregion
-
-        #region Buttons
-
-        #endregion
-
-        private void btnOrder_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnBack_Click(object sender, RoutedEventArgs e)
-        {
-            // Frame.Navigate(typeof(pgModels));
+            this.InitializeComponent();
         }
     }
 }
