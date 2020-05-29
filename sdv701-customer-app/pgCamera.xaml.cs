@@ -106,6 +106,11 @@ namespace sdv701_customer_app
         {
             Frame.Navigate(typeof(pgModels), Camera.camera_brand);
         }
+
+        private void btnOrder_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(pgOrder), Camera.model_name);
+        }
         #endregion
     }
 }

@@ -8,7 +8,7 @@
     mc:Ignorable="d" Width="800" Height="605">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-        <Button Content="Order" HorizontalAlignment="Left" Margin="420,524,0,0" VerticalAlignment="Top" Height="63" Width="126" Background="#FF11BE1C" FontSize="36" FocusVisualPrimaryBrush="Black" Foreground="White" RenderTransformOrigin="0.5,0.524"/>
+        <Button x:Name="btnOrder" Click="btnOrder_Click" Content="Order" HorizontalAlignment="Left" Margin="420,524,0,0" VerticalAlignment="Top" Height="63" Width="126" Background="#FF11BE1C" FontSize="36" FocusVisualPrimaryBrush="Black" Foreground="White" RenderTransformOrigin="0.5,0.524"/>
         <Button x:Name="btnBack" Click="btnBack_Click" Content="Back" HorizontalAlignment="Left" Margin="274,524,0,0" VerticalAlignment="Top" Height="63" Width="126" Background="#FFDC9744" FontSize="36" FocusVisualPrimaryBrush="Black" Foreground="White"/>
         <TextBlock HorizontalAlignment="Left" Text="Price" TextWrapping="Wrap" VerticalAlignment="Top" Height="46" Width="75" Margin="136,178,0,0" FontSize="30" FontWeight="Bold"/>
         <TextBlock HorizontalAlignment="Left" Text="In Stock" TextWrapping="Wrap" VerticalAlignment="Top" Height="46" Width="135" Margin="489,186,0,0" FontSize="30" FontFamily="Segoe UI" FontWeight="Bold"/>
