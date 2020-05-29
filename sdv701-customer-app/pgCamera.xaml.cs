@@ -65,6 +65,7 @@ namespace sdv701_customer_app
                 }
                 catch (Exception ex)
                 {
+                    // To do implement feedback from server
                     //lblStatus.Text = ex.GetBaseException().Message;
                 }
             }
@@ -91,11 +92,12 @@ namespace sdv701_customer_app
         #region Updates
         public void UpdateForm()
         {
-            //lblMessage.Text = "";
+            
             lblModel.Text = Camera.model_name;
             lblPrice.Text = "NZD" + Camera.price.ToString();
             lblDescription.Text = Camera.description;
             lblQuantity.Text = Camera.quantity.ToString();
+            // IMplement this to show zoom range or lens mount
             //(ctcInheritance.Content as IInheritanceControl).UpdateControl(Camera);
         }
         #endregion
