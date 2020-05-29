@@ -90,16 +90,8 @@ namespace sdv701_customer_app
         {
             try
             {
-                string lcCameraType = ModelList[lstModels.SelectedIndex].camera_type;
                 string lcCameraId = ModelList[lstModels.SelectedIndex].model_name;
-
-                if(lcCameraType == "DSLR")
-                {
-                    Frame.Navigate(typeof(pgDSLR), lcCameraId);
-                } else
-                {
-                   Frame.Navigate(typeof(pgPointNShoot), lcCameraId);
-                }
+                Frame.Navigate(typeof(pgCamera), lcCameraId);
             }
             catch (Exception ex)
             {

@@ -96,9 +96,6 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="clsDTO.cs" />
-    <Compile Include="pgCamera.xaml.cs">
-      <DependentUpon>pgCamera.xaml</DependentUpon>
-    </Compile>
     <Compile Include="pgConfirmation.xaml.cs">
       <DependentUpon>pgConfirmation.xaml</DependentUpon>
     </Compile>
@@ -111,14 +108,17 @@
     <Compile Include="pgOrder.xaml.cs">
       <DependentUpon>pgOrder.xaml</DependentUpon>
     </Compile>
-    <Compile Include="pgDSLR.xaml.cs">
-      <DependentUpon>pgDSLR.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="pgPointNShoot.xaml.cs">
-      <DependentUpon>pgPointNShoot.xaml</DependentUpon>
+    <Compile Include="pgCamera.xaml.cs">
+      <DependentUpon>pgCamera.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceClient.cs" />
+    <Compile Include="ucDSLR.xaml.cs">
+      <DependentUpon>ucDSLR.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ucPointNShoot.xaml.cs">
+      <DependentUpon>ucPointNShoot.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -143,10 +143,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="pgCamera.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="pgConfirmation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -163,11 +159,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="pgDSLR.xaml">
+    <Page Include="pgCamera.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="pgPointNShoot.xaml">
+    <Page Include="ucDSLR.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ucPointNShoot.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

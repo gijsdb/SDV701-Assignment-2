@@ -33,6 +33,14 @@ namespace sdv701_customer_app
                 return JsonConvert.DeserializeObject<List<clsAllCameras>>
                     (await lcHttpClient.GetStringAsync("http://localhost:60064/api/camera/getbrandmodelobjects?Brand=" + prBrandName));
         }
+
+        internal async static Task<clsAllCameras> GetCameraAsync(string camera_model)
+        {
+            using (HttpClient lcHttpClient = new HttpClient())
+                return JsonConvert.DeserializeObject<clsAllCameras>
+                    (await lcHttpClient.GetStringAsync("http://localhost:60064/api/camera/getcamera?camera_model=" + camera_model));
+        }
+
         #endregion
     }
 }
