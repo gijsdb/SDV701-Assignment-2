@@ -61,20 +61,21 @@ namespace sdv701_customer_app
                 {
                     Camera = await ServiceClient.GetCameraAsync(e.Parameter.ToString());
                     LoadCameraDetail(Camera as clsAllCameras);
-                    UpdateForm();
+                    // UpdateForm();
                 }
                 catch (Exception ex)
                 {
                     // To do implement feedback from server
-                    //lblStatus.Text = ex.GetBaseException().Message;
+                    lblStatus.Text = ex.GetBaseException().Message;
                 }
             }
             else
             {
-                //lblStatus.Text = "";
+                lblStatus.Text = "Failed to load";
             }
 
         }
+        #endregion
 
         #region UserControls
         private void SetDSLR(clsAllCameras prCam)
@@ -87,20 +88,24 @@ namespace sdv701_customer_app
             ctcInheritance.Content = new ucPointNShoot();
         }
         #endregion
-        #endregion
 
         #region Updates
         public void UpdateForm()
         {
-            
             lblModel.Text = Camera.model_name;
             lblPrice.Text = "NZD" + Camera.price.ToString();
             lblDescription.Text = Camera.description;
             lblQuantity.Text = Camera.quantity.ToString();
-            // IMplement this to show zoom range or lens mount
-            //(ctcInheritance.Content as IInheritanceControl).UpdateControl(Camera);
+            (ctcInheritance.Content as ICameraControl).UpdateControl(Camera);
+            lblStatus.Text = ctcInheritance.Content.ToString();
         }
         #endregion
 
+        #region Buttons
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(pgModels), Camera.camera_brand);
+        }
+        #endregion
     }
 }

@@ -11,6 +11,6 @@
 
     <Grid>
         <TextBlock HorizontalAlignment="Left" Text="Lens Mount" TextWrapping="Wrap" VerticalAlignment="Top" Height="46" Width="192" Margin="462,81,0,0" FontSize="30" FontWeight="Bold"/>
-        <TextBlock HorizontalAlignment="Left" Margin="503,137,0,0" Text="EF-S" TextWrapping="Wrap" FontSize="25" VerticalAlignment="Top"/>
+        <TextBlock x:Name="lblLensMount" HorizontalAlignment="Left" Margin="503,137,0,0" Text="EF-S" TextWrapping="Wrap" FontSize="25" VerticalAlignment="Top"/>
     </Grid>
 </UserControl>

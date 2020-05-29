@@ -96,6 +96,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="clsDTO.cs" />
+    <Compile Include="ICameraControl.cs" />
     <Compile Include="pgConfirmation.xaml.cs">
       <DependentUpon>pgConfirmation.xaml</DependentUpon>
     </Compile>
