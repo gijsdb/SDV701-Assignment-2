@@ -97,7 +97,6 @@ namespace sdv701_customer_app
             lblDescription.Text = Camera.description;
             lblQuantity.Text = Camera.quantity.ToString();
             (ctcInheritance.Content as ICameraControl).UpdateControl(Camera);
-            lblStatus.Text = ctcInheritance.Content.ToString();
         }
         #endregion
 

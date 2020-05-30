@@ -61,6 +61,25 @@ namespace sdv701_customer_app
             lblDescription.Text = Camera.description;
             lblPrice.Text = Camera.price.ToString();
             lblQuantity.Text = Camera.quantity.ToString();
+            if(Camera.camera_type == "DSLR")
+            {
+                lblInheritance.Text = "Lens mount";
+                lblInheritanceVal.Text = Camera.lens_mount;
+            } else
+            {
+                lblInheritance.Text = "Zoom range";
+                lblInheritanceVal.Text = Camera.zoom_range;
+            }
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(pgCamera), Camera.model_name);
+        }
+
+        private void btnConfirmOrder_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

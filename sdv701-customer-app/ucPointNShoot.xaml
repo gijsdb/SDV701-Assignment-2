@@ -10,7 +10,7 @@
     d:DesignWidth="400">
 
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Text="Zoom Range" TextWrapping="Wrap" VerticalAlignment="Top" Height="46" Width="192" Margin="462,81,0,0" FontSize="30" FontWeight="Bold"/>
-        <TextBlock x:Name="lblZoomRange" HorizontalAlignment="Left" Margin="503,137,0,0" Text="8x Zoom" TextWrapping="Wrap" FontSize="25" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Center" Text="Zoom Range" TextWrapping="Wrap" VerticalAlignment="Top" Height="296" Width="399" FontSize="25" FontWeight="Bold"/>
+        <TextBlock x:Name="lblZoomRange" HorizontalAlignment="Left" Margin="200,3,0,0" Text="EF-S" TextWrapping="Wrap" FontSize="20" VerticalAlignment="Top" Width="190" Height="297"/>
     </Grid>
 </UserControl>

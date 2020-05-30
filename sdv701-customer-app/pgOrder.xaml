@@ -5,24 +5,25 @@
     xmlns:local="using:sdv701_customer_app"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d" Width="1050">
+    mc:Ignorable="d" Width="1050" Height="570">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="0,0,10,70" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-        <TextBlock HorizontalAlignment="Left" Text="Description" TextWrapping="Wrap" VerticalAlignment="Top" Height="46" Width="192" Margin="83,155,0,0" FontSize="30" FontWeight="Bold"/>
-        <TextBlock HorizontalAlignment="Left" Text="Price" TextWrapping="Wrap" VerticalAlignment="Top" Height="46" Width="192" Margin="83,320,0,0" FontSize="30" FontWeight="Bold"/>
-        <TextBlock HorizontalAlignment="Left" Text="Inheritance" TextWrapping="Wrap" VerticalAlignment="Top" Height="46" Width="192" Margin="85,534,0,0" FontSize="30" FontWeight="Bold"/>
-        <TextBlock HorizontalAlignment="Left" Text="In Stock" TextWrapping="Wrap" VerticalAlignment="Top" Height="46" Width="192" Margin="85,437,0,0" FontSize="30" FontFamily="Segoe UI" FontWeight="Bold"/>
-        <TextBlock x:Name="lblModel" HorizontalAlignment="Left" Margin="83,90,0,0" Text="###" TextWrapping="Wrap" FontSize="25" VerticalAlignment="Top"/>
-        <TextBlock x:Name="lblDescription" HorizontalAlignment="Left" Margin="85,200,0,0" Text="###" TextWrapping="Wrap" FontSize="25" VerticalAlignment="Top" Height="111" Width="415"/>
-        <TextBlock x:Name="lblPrice" HorizontalAlignment="Left" Margin="83,365,0,0" Text="###" TextWrapping="Wrap" FontSize="25" VerticalAlignment="Top"/>
-        <TextBlock x:Name="lblQuantity" HorizontalAlignment="Left" Margin="85,482,0,0" Text="###" TextWrapping="Wrap" FontSize="25" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Text="Model" TextWrapping="Wrap" VerticalAlignment="Top" Height="46" Width="192" Margin="83,45,0,0" FontSize="30" FontWeight="Bold"/>
-        <TextBlock HorizontalAlignment="Left" Text="Insert customer details" TextWrapping="Wrap" VerticalAlignment="Top" Height="55" Width="347" Margin="640,53,0,0" FontSize="30" FontWeight="Bold"/>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="0,0,10,10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <TextBlock HorizontalAlignment="Left" Text="Description" TextWrapping="Wrap" VerticalAlignment="Top" Height="46" Width="192" Margin="83,125,0,0" FontSize="25" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Text="Price" TextWrapping="Wrap" VerticalAlignment="Top" Height="46" Width="192" Margin="83,260,0,0" FontSize="25" FontWeight="Bold"/>
+        <TextBlock x:Name="lblInheritance" HorizontalAlignment="Left" Text="Inheritance" TextWrapping="Wrap" VerticalAlignment="Top" Height="46" Width="192" Margin="83,410,0,0" FontSize="25" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Text="In Stock" TextWrapping="Wrap" VerticalAlignment="Top" Height="46" Width="192" Margin="83,340,0,0" FontSize="25" FontFamily="Segoe UI" FontWeight="Bold"/>
+        <TextBlock x:Name="lblModel" HorizontalAlignment="Left" Margin="83,90,0,0" Text="###" TextWrapping="Wrap" FontSize="20" VerticalAlignment="Top"/>
+        <TextBlock x:Name="lblDescription" HorizontalAlignment="Left" Margin="85,166,0,0" Text="###" TextWrapping="Wrap" FontSize="20" VerticalAlignment="Top" Height="71" Width="415"/>
+        <TextBlock x:Name="lblPrice" HorizontalAlignment="Left" Margin="83,300,0,0" Text="###" TextWrapping="Wrap" FontSize="20" VerticalAlignment="Top"/>
+        <TextBlock x:Name="lblQuantity" HorizontalAlignment="Left" Margin="85,378,0,0" Text="###" TextWrapping="Wrap" FontSize="20" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Text="Model" TextWrapping="Wrap" VerticalAlignment="Top" Height="46" Width="192" Margin="83,45,0,0" FontSize="25" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Text="Insert customer details" TextWrapping="Wrap" VerticalAlignment="Top" Height="55" Width="347" Margin="640,53,0,0" FontSize="25" FontWeight="Bold"/>
         <TextBox HorizontalAlignment="Left" Margin="647,107,0,0" Text="Your name" VerticalAlignment="Top" Height="35" Width="315"/>
         <TextBox HorizontalAlignment="Left" Margin="644,175,0,0" Text="Your email" VerticalAlignment="Top" Height="35" Width="315"/>
-        <Button Content="Confirm Order" HorizontalAlignment="Left" Margin="743,541,0,0" VerticalAlignment="Top" Height="66" Width="219" Background="#FF11BE1C" FontSize="30" FocusVisualPrimaryBrush="Black" Foreground="White" RenderTransformOrigin="0.228,0.576"/>
-        <Button Content="Back" HorizontalAlignment="Left" Margin="560,544,0,0" VerticalAlignment="Top" Height="63" Width="126" Background="#FFDC9744" FontSize="36" FocusVisualPrimaryBrush="Black" Foreground="White"/>
+        <Button x:Name="btnConfirmOrder" Click="btnConfirmOrder_Click" Content="Confirm Order" HorizontalAlignment="Left" Margin="743,464,0,0" VerticalAlignment="Top" Height="66" Width="219" Background="#FF11BE1C" FontSize="25" FocusVisualPrimaryBrush="Black" Foreground="White" RenderTransformOrigin="0.228,0.576"/>
+        <Button x:Name="btnBack" Click="btnBack_Click" Content="Back" HorizontalAlignment="Left" Margin="564,465,0,0" VerticalAlignment="Top" Height="63" Width="126" Background="#FFDC9744" FontSize="36" FocusVisualPrimaryBrush="Black" Foreground="White" RenderTransformOrigin="0.516,0.413"/>
         <TextBlock HorizontalAlignment="Left" Margin="625,260,0,0" Text="Warning: This is the last page before your order is submitted. You cannot revert your order." TextWrapping="Wrap" VerticalAlignment="Top" Height="192" Width="341" FontSize="30" Foreground="Red"/>
+        <TextBlock x:Name="lblInheritanceVal" HorizontalAlignment="Left" Text="Inheritance" TextWrapping="Wrap" VerticalAlignment="Top" Height="32" Width="151" Margin="83,449,0,0"/>
 
     </Grid>
 </Page>
