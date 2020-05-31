@@ -28,13 +28,15 @@ namespace sdv701_customer_app
             this.InitializeComponent();
         }
 
+        #region Variables
         private clsAllCameras _Camera;
         public clsAllCameras Camera { get => _Camera; set => _Camera = value; }
+        #endregion
 
+        #region Methods
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-
             if (e.Parameter != null)
             {
                 try
@@ -52,26 +54,31 @@ namespace sdv701_customer_app
             {
                 //lblStatus.Text = "Failed to load";
             }
-
         }
+        #endregion
 
+        #region Update
         private void UpdateForm()
         {
             lblModel.Text = Camera.model_name;
             lblDescription.Text = Camera.description;
             lblPrice.Text = Camera.price.ToString();
             lblQuantity.Text = Camera.quantity.ToString();
-            if(Camera.camera_type == "DSLR")
+            if (Camera.camera_type == "DSLR")
             {
                 lblInheritance.Text = "Lens mount";
                 lblInheritanceVal.Text = Camera.lens_mount;
-            } else
+            }
+            else
             {
                 lblInheritance.Text = "Zoom range";
                 lblInheritanceVal.Text = Camera.zoom_range;
             }
         }
 
+        #endregion
+
+        #region Buttons
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(pgCamera), Camera.model_name);
@@ -81,5 +88,6 @@ namespace sdv701_customer_app
         {
 
         }
+        #endregion
     }
 }

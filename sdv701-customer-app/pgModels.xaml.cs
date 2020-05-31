@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -71,7 +72,7 @@ namespace sdv701_customer_app
                     List<string> lcModelNames = new List<string>();
                     foreach (clsAllCameras camera in ModelList)
                     {
-                        lcModelNames.Add(camera.model_name + " " + camera.camera_type);
+                        lcModelNames.Add(camera.model_name + "   " + camera.price + "   " + camera.camera_type);
                     }
                     lstModels.ItemsSource = lcModelNames;
                 }
@@ -108,6 +109,13 @@ namespace sdv701_customer_app
             lblStatus.Text = "";
 
             SetModelList();
+        }
+        #endregion
+
+        #region ListControls
+        private void lstModels_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
+        {
+            OpenSelectedCamera();
         }
         #endregion
 

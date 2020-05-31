@@ -13,14 +13,14 @@
     <Grid>
         <TextBlock x:Name="lblTitle" HorizontalAlignment="Left" Margin="210,31,0,0" Text="Models" TextWrapping="Wrap" VerticalAlignment="Top" Height="69" Width="353" FontSize="48"/>
 
-        <ListBox x:Name="lstModels" HorizontalAlignment="Center" Height="238" VerticalAlignment="Top" FontFamily="Segoe UI" Width="666" Margin="0,122,0,0" RequestedTheme="Default"/>
+        <ListBox x:Name="lstModels" DoubleTapped="lstModels_DoubleTapped" HorizontalAlignment="Center" Height="238" VerticalAlignment="Top" FontFamily="Segoe UI" Width="666" Margin="0,122,0,0" RequestedTheme="Default"/>
 
         <Button x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Margin="43,402,0,0" VerticalAlignment="Top" Height="63" Width="126" Background="#FFDC9744" FontSize="36" Foreground="White" Click="btnBack_Click"/>
         <Button x:Name="btnOpenCamera" Content="Open camera details" HorizontalAlignment="Left" Margin="267,402,0,0" VerticalAlignment="Top" Height="63" Width="192" Background="#FF3A8F00" FontSize="18" Foreground="White" Click="btnOpenCamera_Click"/>
         <Button Content="Button" HorizontalAlignment="Left" Margin="850,605,0,0" VerticalAlignment="Top" Width="100"/>
 
         <TextBlock HorizontalAlignment="Left" Margin="44,95,0,0" Text="Model" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="155,95,0,0" Text="Price" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="135,95,0,0" Text="Price (NZD)" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="244,95,0,0" Text="Type" TextWrapping="Wrap" VerticalAlignment="Top"/>
 
         <Button Content="Sort" HorizontalAlignment="Left" Margin="519,412,0,0" VerticalAlignment="Top"/>
