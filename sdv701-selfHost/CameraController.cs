@@ -220,12 +220,12 @@ namespace sdv701_selfHost
             }
         }
        
-        // Trying stored prcedure. Not working.
+        // Checks if camera is available
         public string GetItemAvailable(string camera_model)
         {
             try
             {
-                string lcResult = clsDbConnection.executeStoredProcedure(camera_model);
+                int lcResult = clsDbConnection.executeStoredProcedure(camera_model);
                 return lcResult.ToString();
             }
             catch (Exception ex)

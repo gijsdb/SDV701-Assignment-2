@@ -42,10 +42,10 @@ namespace sdv701_customer_app
         }
 
         // Testing stored procedure
-        internal async static Task<List<string>> GetItemAvailable(string camera_model)
+        internal async static Task<List<int>> GetItemAvailable(string camera_model)
         {
             using (HttpClient lcHttpClient = new HttpClient())
-                return JsonConvert.DeserializeObject<List<string>>
+                return JsonConvert.DeserializeObject<List<int>>
                     (await lcHttpClient.GetStringAsync("http://localhost:60064/api/camera/getitemavailable?camera_model=" + camera_model));
         }
         #endregion
