@@ -221,7 +221,7 @@ namespace sdv701_selfHost
         }
        
         // Trying stored prcedure. Not working.
-        public string PostOrder(string camera_model)
+        public string GetItemAvailable(string camera_model)
         {
             try
             {

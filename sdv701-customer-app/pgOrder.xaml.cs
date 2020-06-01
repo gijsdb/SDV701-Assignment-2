@@ -89,7 +89,7 @@ namespace sdv701_customer_app
             try
             {
                 
-                List<string> lcOrder = await ServiceClient.PostOrder(Camera.model_name);
+                List<string> lcOrder = await ServiceClient.GetItemAvailable(Camera.model_name);
                 lblStatus.Text = lcOrder.ToString();
             }
             catch (Exception ex)

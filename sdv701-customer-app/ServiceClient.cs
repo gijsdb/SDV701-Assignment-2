@@ -42,7 +42,7 @@ namespace sdv701_customer_app
         }
 
         // Testing stored procedure
-        internal async static Task<List<string>> PostOrder(string camera_model)
+        internal async static Task<List<string>> GetItemAvailable(string camera_model)
         {
             using (HttpClient lcHttpClient = new HttpClient())
                 return JsonConvert.DeserializeObject<List<string>>
