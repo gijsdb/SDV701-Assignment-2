@@ -46,7 +46,7 @@ namespace sdv701_customer_app
         {
             using (HttpClient lcHttpClient = new HttpClient())
                 return JsonConvert.DeserializeObject<List<string>>
-                    (await lcHttpClient.GetStringAsync("http://localhost:60064/api/camera/postorder?camera_model=" + camera_model));
+                    (await lcHttpClient.GetStringAsync("http://localhost:60064/api/camera/getitemavailable?camera_model=" + camera_model));
         }
         #endregion
     }

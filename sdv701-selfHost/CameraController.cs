@@ -225,7 +225,7 @@ namespace sdv701_selfHost
         {
             try
             {
-                int lcResult = clsDbConnection.executeStoredProcedure(camera_model);
+                string lcResult = clsDbConnection.executeStoredProcedure(camera_model);
                 return lcResult.ToString();
             }
             catch (Exception ex)

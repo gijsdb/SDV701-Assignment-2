@@ -56,16 +56,23 @@ namespace sdv701_selfHost
         }
 
         // Not working, bad attempt at using stored procedure. Delete later
-        public static int executeStoredProcedure(string prModelName)
+        public static string executeStoredProcedure(string prModelName)
         {
             using (SqlConnection con = new SqlConnection(ConnectionStr))
             {
                 using (SqlCommand cmd = new SqlCommand("orderCamera", con))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@FirstName", prModelName);
+                    cmd.Parameters.AddWithValue("@prModelName", prModelName);
                     con.Open();
-                    return cmd.ExecuteNonQuery();
+                    int lcResult = cmd.ExecuteNonQuery();
+                    if(lcResult != 999)
+                    {
+                        return "camera available";
+                    } else
+                    {
+                        return "Out of stock";
+                    }
                 }
             }
         }
