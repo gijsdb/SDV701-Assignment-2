@@ -24,6 +24,7 @@
         <Button x:Name="btnBack" Click="btnBack_Click" Content="Back" HorizontalAlignment="Left" Margin="564,465,0,0" VerticalAlignment="Top" Height="63" Width="126" Background="#FFDC9744" FontSize="36" FocusVisualPrimaryBrush="Black" Foreground="White" RenderTransformOrigin="0.516,0.413"/>
         <TextBlock HorizontalAlignment="Left" Margin="625,260,0,0" Text="Warning: This is the last page before your order is submitted. You cannot revert your order." TextWrapping="Wrap" VerticalAlignment="Top" Height="192" Width="341" FontSize="30" Foreground="Red"/>
         <TextBlock x:Name="lblInheritanceVal" HorizontalAlignment="Left" Text="Inheritance" TextWrapping="Wrap" VerticalAlignment="Top" Height="32" Width="151" Margin="83,449,0,0"/>
+        <TextBlock x:Name="lblStatus" HorizontalAlignment="Left" Margin="299,193,0,0" Text="Status message" TextWrapping="Wrap" VerticalAlignment="Top" Height="192" Width="341" FontSize="15" Foreground="Red"/>
 
     </Grid>
 </Page>

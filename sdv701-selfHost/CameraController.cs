@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -218,6 +219,21 @@ namespace sdv701_selfHost
                 return ex.GetBaseException().Message;
             }
         }
+       
+        // Trying stored prcedure. Not working.
+        public string PostOrder(string camera_model)
+        {
+            try
+            {
+                int lcResult = clsDbConnection.executeStoredProcedure(camera_model);
+                return lcResult.ToString();
+            }
+            catch (Exception ex)
+            {
+                return ex.GetBaseException().Message;
+            }
+        }
+
         #endregion
 
         #region Other methods

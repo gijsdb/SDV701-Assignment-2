@@ -6,6 +6,7 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
 
 namespace sdv701_selfHost
 {
@@ -52,6 +53,21 @@ namespace sdv701_selfHost
                     lcPar.Value = lcItem.Value == null ? DBNull.Value : lcItem.Value;
                     lcPar.ParameterName = '@' + lcItem.Key; prCommand.Parameters.Add(lcPar);
                 }
+        }
+
+        // Not working, bad attempt at using stored procedure. Delete later
+        public static int executeStoredProcedure(string prModelName)
+        {
+            using (SqlConnection con = new SqlConnection(ConnectionStr))
+            {
+                using (SqlCommand cmd = new SqlCommand("orderCamera", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@FirstName", prModelName);
+                    con.Open();
+                    return cmd.ExecuteNonQuery();
+                }
+            }
         }
     }
 }

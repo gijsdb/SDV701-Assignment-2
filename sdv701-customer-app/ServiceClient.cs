@@ -41,6 +41,13 @@ namespace sdv701_customer_app
                     (await lcHttpClient.GetStringAsync("http://localhost:60064/api/camera/getcamera?camera_model=" + camera_model));
         }
 
+        // Testing stored procedure
+        internal async static Task<List<string>> PostOrder(string camera_model)
+        {
+            using (HttpClient lcHttpClient = new HttpClient())
+                return JsonConvert.DeserializeObject<List<string>>
+                    (await lcHttpClient.GetStringAsync("http://localhost:60064/api/camera/postorder?camera_model=" + camera_model));
+        }
         #endregion
     }
 }

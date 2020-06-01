@@ -84,9 +84,19 @@ namespace sdv701_customer_app
             Frame.Navigate(typeof(pgCamera), Camera.model_name);
         }
 
-        private void btnConfirmOrder_Click(object sender, RoutedEventArgs e)
+        private async void btnConfirmOrder_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                
+                List<string> lcOrder = await ServiceClient.PostOrder(Camera.model_name);
+                lblStatus.Text = lcOrder.ToString();
+            }
+            catch (Exception ex)
+            {
+                // To do implement feedback from server
+                lblStatus.Text = ex.GetBaseException().Message;
+            }
         }
         #endregion
     }
