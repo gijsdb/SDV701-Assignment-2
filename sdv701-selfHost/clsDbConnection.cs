@@ -56,14 +56,15 @@ namespace sdv701_selfHost
         }
 
         // Not working, bad attempt at using stored procedure. Delete later
-        public static int executeStoredProcedure(string prModelName)
+        public static int executeStoredProcedureAvailable(string prModelName, int prQuantity)
         {
             using (SqlConnection con = new SqlConnection(ConnectionStr))
             {
-                using (SqlCommand cmd = new SqlCommand("orderCamera", con))
+                using (SqlCommand cmd = new SqlCommand("isCameraAvailable", con))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@prModelName", prModelName);
+                    cmd.Parameters.AddWithValue("@prQuantity", prQuantity);
                     con.Open();
                     return cmd.ExecuteNonQuery();
                 }
