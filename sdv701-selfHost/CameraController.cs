@@ -221,11 +221,14 @@ namespace sdv701_selfHost
         }
        
         // Checks if camera is available
-        public string GetItemAvailable(string camera_model, int quantity)
+        public string GetItemAvailable(string camera_model, int quantity=1)
         {
+            Dictionary<string, object> par = new Dictionary<string, object>(2);
+            par.Add("prModelName", camera_model);
+            par.Add("prQuantity", 1);
             try
             {
-                int lcResult = clsDbConnection.executeStoredProcedureAvailable(camera_model, quantity);
+                string lcResult =  clsDbConnection.ExecuteStoredProcedure("isCameraAvailable",par);
                 return lcResult.ToString();
             }
             catch (Exception ex)

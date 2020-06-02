@@ -88,9 +88,9 @@ namespace sdv701_customer_app
         {
             try
             {
-                int lcQuantity = Convert.ToInt32(txtOrderQuantity.Text);
-                int lcOrder = await ServiceClient.GetItemAvailable(Camera.model_name, lcQuantity);
-                lblStatus.Text = lcOrder.ToString();
+                int lcQuantity = Convert.ToInt16(txtOrderQuantity.Text);
+                int isAvailable = await ServiceClient.GetItemAvailable(Camera.model_name, lcQuantity);
+                lblStatus.Text = isAvailable.ToString();
                 // After item is available call create order procedure 
             }
             catch (Exception ex)

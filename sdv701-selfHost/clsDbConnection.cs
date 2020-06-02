@@ -23,7 +23,8 @@ namespace sdv701_selfHost
 
             using (DbCommand lcCommand = lcDataConnection.CreateCommand())
             {
-                lcDataConnection.ConnectionString = ConnectionStr; lcDataConnection.Open();
+                lcDataConnection.ConnectionString = ConnectionStr;
+                lcDataConnection.Open();
                 lcCommand.CommandText = prSQL; setPars(lcCommand, prPars);
                 using (DbDataReader lcDataReader = lcCommand.ExecuteReader(CommandBehavior.CloseConnection)) lcDataTable.Load(lcDataReader);
                 return lcDataTable;
@@ -43,6 +44,21 @@ namespace sdv701_selfHost
             }
         }
 
+        public static string ExecuteStoredProcedure(string prProcedureName, Dictionary<string, Object> prPars)
+        {
+            using (SqlConnection con = new SqlConnection(ConnectionStr))
+            {
+                using (SqlCommand cmd = new SqlCommand(prProcedureName, con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    setPars(cmd, prPars);
+                    con.Open();
+                    int lcResult = cmd.ExecuteNonQuery();
+                    return lcResult.ToString();
+                }
+            }
+        }
+
         private static void setPars(DbCommand prCommand, Dictionary<string, Object> prPars)
         {
             // For most DBMS using @Name1, @Name2, @Name3 etc. 
@@ -56,7 +72,7 @@ namespace sdv701_selfHost
         }
 
         // Not working, bad attempt at using stored procedure. Delete later
-        public static int executeStoredProcedureAvailable(string prModelName, int prQuantity)
+        public static int executeStoredProcedureAvailable(string prModelName)
         {
             using (SqlConnection con = new SqlConnection(ConnectionStr))
             {
@@ -64,7 +80,7 @@ namespace sdv701_selfHost
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@prModelName", prModelName);
-                    cmd.Parameters.AddWithValue("@prQuantity", prQuantity);
+                    cmd.Parameters.AddWithValue("@prQuantity", 1);
                     con.Open();
                     return cmd.ExecuteNonQuery();
                 }
