@@ -44,7 +44,7 @@ namespace sdv701_selfHost
             }
         }
 
-        public static string ExecuteStoredProcedure(string prProcedureName, Dictionary<string, Object> prPars)
+        public static int ExecuteStoredProcedure(string prProcedureName, Dictionary<string, Object> prPars)
         {
             using (SqlConnection con = new SqlConnection(ConnectionStr))
             {
@@ -53,8 +53,7 @@ namespace sdv701_selfHost
                     cmd.CommandType = CommandType.StoredProcedure;
                     setPars(cmd, prPars);
                     con.Open();
-                    int lcResult = cmd.ExecuteNonQuery();
-                    return lcResult.ToString();
+                    return cmd.ExecuteNonQuery();
                 }
             }
         }
@@ -69,22 +68,6 @@ namespace sdv701_selfHost
                     lcPar.Value = lcItem.Value == null ? DBNull.Value : lcItem.Value;
                     lcPar.ParameterName = '@' + lcItem.Key; prCommand.Parameters.Add(lcPar);
                 }
-        }
-
-        // Not working, bad attempt at using stored procedure. Delete later
-        public static int executeStoredProcedureAvailable(string prModelName)
-        {
-            using (SqlConnection con = new SqlConnection(ConnectionStr))
-            {
-                using (SqlCommand cmd = new SqlCommand("isCameraAvailable", con))
-                {
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@prModelName", prModelName);
-                    cmd.Parameters.AddWithValue("@prQuantity", 1);
-                    con.Open();
-                    return cmd.ExecuteNonQuery();
-                }
-            }
         }
     }
 }
