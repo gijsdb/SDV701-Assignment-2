@@ -221,15 +221,41 @@ namespace sdv701_selfHost
         }
        
         // Checks if camera is available through procedure
-        public string GetItemAvailable(string camera_model, int quantity)
+        public string GetOrder(string camera_model, int quantity)
         {
             Dictionary<string, object> par = new Dictionary<string, object>(2);
-            par.Add("prModelName", camera_model);
-            par.Add("prQuantity", quantity);
+            par.Add("camera_model", camera_model);
+            par.Add("quantity", quantity);
             try
             {
-                int lcResult =  clsDbConnection.ExecuteStoredProcedure("isCameraAvailable",par);
-                return lcResult.ToString();
+                int lcResult = clsDbConnection.Execute("UPDATE tblCameraModel SET quantity = quantity - @quantity WHERE model_name = @camera_model AND quantity >= @quantity", par);
+                if (lcResult == 1)
+                    return "Amount available";
+                else
+                    return "Amount not available";
+            }
+            catch (Exception ex)
+            {
+                return ex.GetBaseException().Message;
+            }
+
+        }
+
+        public string PostOrder(clsOrder prOrder)
+        {
+            try
+            {
+                int lcRecCount = clsDbConnection.Execute(
+                    "INSERT INTO tblOrder(order_date, price, quantity, customer_name, customer_address, fk_model_name) VALUES (@order_date, @price, @quantity, @customer_name, @customer_address, @fk_model_name)", PrepareItemParametersOrder(prOrder)
+                );
+
+                if(lcRecCount == 1)
+                {
+                   return "One Order Inserted.";
+                } else
+                {
+                    return "Error";
+                }
             }
             catch (Exception ex)
             {
@@ -253,6 +279,18 @@ namespace sdv701_selfHost
             par.Add("last_modified", prCamera.last_modified);
             par.Add("camera_type", prCamera.camera_type);
             par.Add("camera_brand", prCamera.camera_brand);
+            return par;
+        }
+
+        private Dictionary<string, object> PrepareItemParametersOrder(clsOrder prOrder)
+        {
+            Dictionary<string, object> par = new Dictionary<string, object>(6);
+            par.Add("order_date", prOrder.order_date);
+            par.Add("price", prOrder.price);
+            par.Add("quantity", prOrder.quantity);
+            par.Add("customer_name", prOrder.customer_name);
+            par.Add("customer_address", prOrder.customer_address);
+            par.Add("fk_model_name", prOrder.model_name);
             return par;
         }
         #endregion

@@ -42,12 +42,28 @@ namespace sdv701_customer_app
         }
 
         // Testing stored procedure
-        internal async static Task<string> GetItemAvailable(string camera_model, int quantity)
+        internal async static Task<string> GetOrder(string camera_model, int quantity)
         {
             using (HttpClient lcHttpClient = new HttpClient())
                 return JsonConvert.DeserializeObject<string>
-                    (await lcHttpClient.GetStringAsync("http://localhost:60064/api/camera/getitemavailable?camera_model=" + camera_model + "&quantity=" + quantity));
+                    (await lcHttpClient.GetStringAsync("http://localhost:60064/api/camera/getorder?camera_model=" + camera_model + "&quantity=" + quantity));
+        }
+
+        internal async static Task<string> InsertOrder(clsOrder prOrder)
+        {
+            return await InsertOrUpdateAsync(prOrder, "http://localhost:60064/api/camera/PostOrder", "POST");
         }
         #endregion
+
+        private async static Task<string> InsertOrUpdateAsync<TItem>(TItem prItem, string prUrl, string prRequest)
+        {
+            using (HttpRequestMessage lcReqMessage = new HttpRequestMessage(new HttpMethod(prRequest), prUrl))
+            using (lcReqMessage.Content = new StringContent(JsonConvert.SerializeObject(prItem), Encoding.UTF8, "application/json"))
+            using (HttpClient lcHttpClient = new HttpClient())
+            {
+                HttpResponseMessage lcRespMessage = await lcHttpClient.SendAsync(lcReqMessage);
+                return await lcRespMessage.Content.ReadAsStringAsync();
+            }
+        }
     }
 }

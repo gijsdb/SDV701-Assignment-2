@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -55,6 +56,41 @@ namespace sdv701_customer_app
                 //lblStatus.Text = "Failed to load";
             }
         }
+        
+        private async Task PostOrder()
+        {
+            clsOrder lcOrder = new clsOrder
+            {
+                order_date = DateTime.Today,
+                price = Camera.price,
+                quantity = Convert.ToInt16(txtOrderQuantity.Text),
+                customer_name = txtCustName.Text,
+                customer_address = txtCustAddress.Text,
+                model_name = Camera.model_name,
+            };
+
+            try
+            {
+                int lcQuantity = Convert.ToInt16(txtOrderQuantity.Text);
+                string isAvailable = await ServiceClient.GetOrder(Camera.model_name, lcQuantity);
+
+                if(isAvailable == "Amount available")
+                {
+                    string lcresult = await ServiceClient.InsertOrder(lcOrder);
+                    lblStatus.Text = lcresult;
+                } else
+                {
+                    lblStatus.Text = isAvailable;
+                }
+               
+            }
+            catch (Exception ex)
+            {
+                // To do implement feedback from server
+                lblStatus.Text = ex.GetBaseException().Message;
+            }
+        }
+
         #endregion
 
         #region Update
@@ -86,18 +122,7 @@ namespace sdv701_customer_app
 
         private async void btnConfirmOrder_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                int lcQuantity = Convert.ToInt16(txtOrderQuantity.Text);
-                string isAvailable = await ServiceClient.GetItemAvailable(Camera.model_name, lcQuantity);
-                lblStatus.Text = isAvailable.ToString();
-                // After item is available call create order procedure 
-            }
-            catch (Exception ex)
-            {
-                // To do implement feedback from server
-                lblStatus.Text = ex.GetBaseException().Message;
-            }
+            await PostOrder();
         }
         #endregion
     }
