@@ -12,8 +12,11 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Popups;
 using Windows.UI.Xaml.Navigation;
 using static sdv701_customer_app.clsDTO;
+using System.Text.RegularExpressions;
+using System.Globalization;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -71,18 +74,23 @@ namespace sdv701_customer_app
 
             try
             {
-                int lcQuantity = Convert.ToInt16(txtOrderQuantity.Text);
-                string isAvailable = await ServiceClient.GetOrder(Camera.model_name, lcQuantity);
+                string lcQuantity = txtOrderQuantity.Text;
 
-                if(isAvailable == "Amount available")
+                if (isValidQuantity(lcQuantity))
                 {
-                    string lcresult = await ServiceClient.InsertOrder(lcOrder);
-                    lblStatus.Text = lcresult;
-                } else
-                {
-                    lblStatus.Text = isAvailable;
-                }
-               
+                    int validQuantity = Convert.ToInt16(lcQuantity);
+                    string isAvailable = await ServiceClient.GetOrder(Camera.model_name, validQuantity);
+
+                    if (isAvailable == "Amount available")
+                    {
+                        string lcresult = await ServiceClient.InsertOrder(lcOrder);
+                        lblStatus.Text = lcresult;
+                    }
+                    else
+                    {
+                        lblStatus.Text = isAvailable;
+                    }
+                }             
             }
             catch (Exception ex)
             {
@@ -122,7 +130,45 @@ namespace sdv701_customer_app
 
         private async void btnConfirmOrder_Click(object sender, RoutedEventArgs e)
         {
-            await PostOrder();
+            MessageDialog lcMessageBox = new MessageDialog("Are you sure you want to place an order? You cannot revert this.");
+            lcMessageBox.Commands.Add(new UICommand("Yes", async x =>
+            {
+                try
+                {
+                    await PostOrder();
+                }
+                catch (Exception ex)
+                {
+                    lblStatus.Text = ex.GetBaseException().Message;
+                }
+            }));
+            lcMessageBox.Commands.Add(new UICommand("Cancel"));
+            await lcMessageBox.ShowAsync();
+        }
+        #endregion
+
+        #region Input validations
+        private bool isValidQuantity(string prQuantity)
+        {
+            if (string.IsNullOrWhiteSpace(prQuantity))
+            {
+                lblStatus.Text = "You have not entered a quantity value.";
+                return false;
+            }
+
+            if (!prQuantity.All(char.IsDigit))
+            {
+                lblStatus.Text = "Your order quantity contains invalid characters.";
+                return false;
+            }
+
+            if (Convert.ToInt16(prQuantity) <= 0)
+            {
+                lblStatus.Text = "The order quantity is not valid";
+                return false;
+            }
+
+            return true;
         }
         #endregion
     }
