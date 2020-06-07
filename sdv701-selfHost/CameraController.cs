@@ -101,6 +101,7 @@ namespace sdv701_selfHost
                     zoom_range = lcResult.Rows[0]["zoom_range"] is DBNull ? "" : (string)lcResult.Rows[0]["zoom_range"],
                     last_modified = (DateTime)lcResult.Rows[0]["last_modified"],
                     camera_type = (string)lcResult.Rows[0]["camera_type"],
+                    image = lcResult.Rows[0]["image"] is DBNull ? null : (byte[])lcResult.Rows[0]["image"],
                     camera_brand = (string)lcResult.Rows[0]["fk_camera_brand"]
                 };
             else
@@ -137,7 +138,7 @@ namespace sdv701_selfHost
             try
             {
                 int lcRecCount = clsDbConnection.Execute(
-                    "INSERT INTO tblCameraModel(model_name, description, release_year, quantity, price, lens_mount, zoom_range, last_modified, camera_type, fk_camera_brand) VALUES (@model_name, @description, @release_year, @quantity, @price, @lens_mount, @zoom_range, @last_modified, @camera_type, @camera_brand)", PrepareItemParameters(prCamera)
+                    "INSERT INTO tblCameraModel(model_name, image, description, release_year, quantity, price, lens_mount, zoom_range, last_modified, camera_type, fk_camera_brand) VALUES (@model_name, @image, @description, @release_year, @quantity, @price, @lens_mount, @zoom_range, @last_modified, @camera_type, @camera_brand)", PrepareItemParameters(prCamera)
                 );
                 return "One Camera Inserted.";
             }
@@ -153,7 +154,7 @@ namespace sdv701_selfHost
             try
             {
                 int lcRecCount = clsDbConnection.Execute(
-                    "UPDATE tblCameraModel SET model_name = @model_name, description = @description, release_year = @release_year, quantity = @quantity, price = @price, lens_mount = @lens_mount, zoom_range = @zoom_range, last_modified = @last_modified, camera_type = @camera_type, fk_camera_brand = @camera_brand WHERE model_name = @model_name", PrepareItemParameters(prCamera));
+                    "UPDATE tblCameraModel SET model_name = @model_name, image = @image, description = @description, release_year = @release_year, quantity = @quantity, price = @price, lens_mount = @lens_mount, zoom_range = @zoom_range, last_modified = @last_modified, camera_type = @camera_type, fk_camera_brand = @camera_brand WHERE model_name = @model_name", PrepareItemParameters(prCamera));
                 if (lcRecCount == 1)
                     return "One Camera Updated.";
                 else
@@ -268,8 +269,9 @@ namespace sdv701_selfHost
         #region Other methods
         private Dictionary<string, object> PrepareItemParameters(clsAllCameras prCamera)
         {
-            Dictionary<string, object> par = new Dictionary<string, object>(10);
+            Dictionary<string, object> par = new Dictionary<string, object>(11);
             par.Add("model_name", prCamera.model_name);
+            par.Add("image", prCamera.image);
             par.Add("description", prCamera.description);
             par.Add("release_year", prCamera.release_year);
             par.Add("quantity", prCamera.quantity);

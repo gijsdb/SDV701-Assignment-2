@@ -35,8 +35,8 @@ namespace sdv701_admin_app
             }
             else
             {
-                _Camera.camera_type = "PointNShoot";
-                _Camera.zoom_range = txtZoomRange.Text;
+                Camera.camera_type = "PointNShoot";
+                Camera.zoom_range = txtZoomRange.Text;
                 return true;
             }           
         }
@@ -44,7 +44,7 @@ namespace sdv701_admin_app
         protected override void UpdateForm()
         {
             base.UpdateForm();
-            txtZoomRange.Text = _Camera.zoom_range;
+            txtZoomRange.Text = Camera.zoom_range;
         }
         #endregion
 

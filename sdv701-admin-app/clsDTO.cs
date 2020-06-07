@@ -26,6 +26,7 @@ namespace sdv701_admin_app
         public string zoom_range { get; set; }
         public DateTime last_modified { get; set; }
         public string camera_type { get; set; }
+        public byte[] image { get; set; }
         //FK
         public string camera_brand { get; set; }
     }

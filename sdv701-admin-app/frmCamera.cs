@@ -1,4 +1,7 @@
-﻿using System;
+﻿using sdv701_admin_app.Properties;
+using System;
+using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 /*
@@ -20,17 +23,19 @@ namespace sdv701_admin_app
             InitializeComponent();
         }
         #endregion
-        
-        protected clsAllCameras _Camera;
+
+        private clsAllCameras camera;
         protected string lcBrand;
+
+        protected clsAllCameras Camera { get => camera; set => camera = value; }
 
         #region Methods
 
         public void SetDetails(clsAllCameras prCamera)
         {
-            _Camera = prCamera;
+            Camera = prCamera;
 
-            if (_Camera.model_name != null)
+            if (Camera.model_name != null)
             {
                 txtModelName.Enabled = false;
                 lcBrand = prCamera.camera_brand;
@@ -44,17 +49,9 @@ namespace sdv701_admin_app
             UpdateForm();
             ShowDialog();
         }
-
-
-
         #endregion
 
         #region Buttons
-        private void btnImage_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Coming");
-        }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("You are about to exit without saving, are you sure you want to do this?", "Cancel", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -73,12 +70,12 @@ namespace sdv701_admin_app
             {
                 if (txtModelName.Enabled)
                 {
-                    MessageBox.Show(await ServiceClient.InsertCameraAsync(_Camera));
+                    MessageBox.Show(await ServiceClient.InsertCameraAsync(Camera));
                     frmBrands.Instance.UpdateDisplay();
                     txtModelName.Enabled = false;
                 }
                 else
-                    MessageBox.Show(await ServiceClient.UpdateCameraAsync(_Camera));
+                    MessageBox.Show(await ServiceClient.UpdateCameraAsync(Camera));
                 Hide();
             }
 
@@ -93,13 +90,14 @@ namespace sdv701_admin_app
         {
             try
             {
-                _Camera.camera_brand = lcBrand;
-                _Camera.model_name = txtModelName.Text;
-                _Camera.release_year = dtpReleaseYear.Value;
-                _Camera.description = txtDescription.Text;
-                _Camera.quantity = Convert.ToInt16(numStock.Value);
-                _Camera.last_modified = DateTime.Today;
-                _Camera.price = Convert.ToDecimal(txtPrice.Text);
+                Camera.camera_brand = lcBrand;
+                Camera.model_name = txtModelName.Text;
+                Camera.release_year = dtpReleaseYear.Value;
+                Camera.description = txtDescription.Text;
+                Camera.quantity = Convert.ToInt16(numStock.Value);
+                Camera.last_modified = DateTime.Today;
+                Camera.price = Convert.ToDecimal(txtPrice.Text);
+                Camera.image = ConvertImageToBinary(imgCamera.Image);
                 return true;
             } catch(System.FormatException)
             {
@@ -109,15 +107,54 @@ namespace sdv701_admin_app
 
         protected virtual void UpdateForm()
         {
-            txtModelName.Text = _Camera.model_name;   
-            dtpReleaseYear.Value = _Camera.release_year.Date;
-            txtDescription.Text = _Camera.description;
-            numStock.Value = _Camera.quantity;
-            lblLastModified.Text = Convert.ToString(_Camera.last_modified);
-            txtPrice.Text = Convert.ToString(_Camera.price);
+            txtModelName.Text = Camera.model_name;   
+            dtpReleaseYear.Value = Camera.release_year.Date;
+            txtDescription.Text = Camera.description;
+            numStock.Value = Camera.quantity;
+            lblLastModified.Text = Convert.ToString(Camera.last_modified);
+            txtPrice.Text = Convert.ToString(Camera.price);
+            if (imgCamera.Image == null)
+            {
+                imgCamera.Image = Resources.emptypic;
+            }
+            else
+            {
+                imgCamera.Image = ConvertBinaryToImage(Camera.image);
+            }
         }
         #endregion
 
-       
+        #region Image
+        private void btnImage_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog fileDialog = new OpenFileDialog() { Filter = "JPG|*.jpg", ValidateNames = true, Multiselect = false })
+            {
+                if (fileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    imgCamera.Image = Image.FromFile(fileDialog.FileName);
+                }
+            }
+        }
+
+        private byte[] ConvertImageToBinary(Image prImg)
+        {
+            MemoryStream lcMemoryStream = new MemoryStream();
+            prImg.Save(lcMemoryStream, System.Drawing.Imaging.ImageFormat.Jpeg);
+            return lcMemoryStream.ToArray();
+        }
+
+        private Image ConvertBinaryToImage(byte[] prImgBinary)
+        {
+            if(prImgBinary == null)
+            {
+                return imgCamera.Image = Resources.emptypic;
+            } else
+            {
+                MemoryStream lcMemoryStream = new MemoryStream(prImgBinary);
+                return Image.FromStream(lcMemoryStream);
+            }
+        }
+        #endregion
+
     }
 }

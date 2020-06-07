@@ -35,8 +35,8 @@ namespace sdv701_admin_app
             }
             else
             {
-                _Camera.lens_mount = txtLensMount.Text;
-                _Camera.camera_type = "DSLR";
+                Camera.lens_mount = txtLensMount.Text;
+                Camera.camera_type = "DSLR";
                 return true;
             }          
         }
@@ -44,7 +44,7 @@ namespace sdv701_admin_app
         protected override void UpdateForm()
         {
             base.UpdateForm();
-            txtLensMount.Text = _Camera.lens_mount;
+            txtLensMount.Text = Camera.lens_mount;
         }
         #endregion
     }

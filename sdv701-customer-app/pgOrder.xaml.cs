@@ -74,6 +74,13 @@ namespace sdv701_customer_app
                     {
                         string lcresult = await ServiceClient.InsertOrder(lcOrder);
                         lblStatus.Text = lcresult;
+                        MessageDialog lcMessageBox = new MessageDialog("Your order has been placed. Navigate backt to Camera brands?");
+                        lcMessageBox.Commands.Add(new UICommand("Yes", async x =>
+                        {
+                            Frame.Navigate(typeof(pgBrands));
+                        }));
+                        lcMessageBox.Commands.Add(new UICommand("Cancel"));
+                        await lcMessageBox.ShowAsync();
                     }
                     else
                     {

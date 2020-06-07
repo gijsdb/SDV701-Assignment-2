@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCamera));
             this.lblLastModified = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.txtPrice = new System.Windows.Forms.TextBox();
@@ -39,13 +38,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnImage = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.imgCamera = new System.Windows.Forms.PictureBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.numStock = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
             this.dtpReleaseYear = new System.Windows.Forms.DateTimePicker();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgCamera)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numStock)).BeginInit();
             this.SuspendLayout();
             // 
@@ -135,15 +134,14 @@
             this.btnImage.UseVisualStyleBackColor = true;
             this.btnImage.Click += new System.EventHandler(this.btnImage_Click);
             // 
-            // pictureBox1
+            // imgCamera
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(599, 20);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(430, 306);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 52;
-            this.pictureBox1.TabStop = false;
+            this.imgCamera.Location = new System.Drawing.Point(599, 20);
+            this.imgCamera.Name = "imgCamera";
+            this.imgCamera.Size = new System.Drawing.Size(430, 306);
+            this.imgCamera.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.imgCamera.TabIndex = 52;
+            this.imgCamera.TabStop = false;
             // 
             // btnCancel
             // 
@@ -200,7 +198,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.numStock);
             this.Controls.Add(this.btnImage);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.imgCamera);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.lblLastModified);
@@ -214,7 +212,7 @@
             this.Controls.Add(this.label1);
             this.Name = "frmCamera";
             this.Text = "frmCamera";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgCamera)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numStock)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -232,7 +230,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnImage;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox imgCamera;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.NumericUpDown numStock;
