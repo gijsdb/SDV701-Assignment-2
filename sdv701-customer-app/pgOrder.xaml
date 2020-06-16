@@ -17,14 +17,14 @@
         <TextBlock x:Name="lblPrice" HorizontalAlignment="Left" Margin="85,285,0,0" Text="###" TextWrapping="Wrap" FontSize="20" VerticalAlignment="Top"/>
         <TextBlock x:Name="lblQuantity" HorizontalAlignment="Left" Margin="85,355,0,0" Text="###" TextWrapping="Wrap" FontSize="20" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Text="Model" TextWrapping="Wrap" VerticalAlignment="Top" Height="46" Width="192" Margin="83,45,0,0" FontSize="25" FontWeight="Bold"/>
-        <TextBlock HorizontalAlignment="Left" Text="Insert customer details" TextWrapping="Wrap" VerticalAlignment="Top" Height="55" Width="347" Margin="640,53,0,0" FontSize="25" FontWeight="Bold"/>
-        <TextBox x:Name="txtCustName" HorizontalAlignment="Left" Margin="647,107,0,0" Text="Your name" VerticalAlignment="Top" Height="35" Width="315"/>
-        <TextBox x:Name="txtCustAddress" HorizontalAlignment="Left" Margin="647,158,0,0" Text="Your email" VerticalAlignment="Top" Height="35" Width="315"/>
+        <TextBlock HorizontalAlignment="Left" Text="Insert customer details" TextWrapping="Wrap" VerticalAlignment="Top" Height="55" Width="347" Margin="627,146,0,0" FontSize="25" FontWeight="Bold"/>
+        <TextBox x:Name="txtCustName" HorizontalAlignment="Left" Margin="634,200,0,0" Text="Your name" VerticalAlignment="Top" Height="35" Width="315"/>
+        <TextBox x:Name="txtCustAddress" HorizontalAlignment="Left" Margin="634,251,0,0" Text="Your email" VerticalAlignment="Top" Height="35" Width="315"/>
         <Button x:Name="btnConfirmOrder" Click="btnConfirmOrder_Click" Content="Confirm Order" HorizontalAlignment="Left" Margin="743,464,0,0" VerticalAlignment="Top" Height="66" Width="219" Background="#FF11BE1C" FontSize="25" FocusVisualPrimaryBrush="Black" Foreground="White" RenderTransformOrigin="0.228,0.576"/>
         <Button x:Name="btnBack" Click="btnBack_Click" Content="Back" HorizontalAlignment="Left" Margin="564,465,0,0" VerticalAlignment="Top" Height="63" Width="126" Background="#FFDC9744" FontSize="36" FocusVisualPrimaryBrush="Black" Foreground="White" RenderTransformOrigin="0.516,0.413"/>
         <TextBlock x:Name="lblInheritanceVal" HorizontalAlignment="Left" Text="Inheritance" TextWrapping="Wrap" VerticalAlignment="Top" Height="32" Width="151" Margin="83,427,0,0"/>
-        <TextBlock x:Name="lblStatus" HorizontalAlignment="Left" Margin="576,427,0,0" Text="Status message" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="341" FontSize="15" Foreground="Red"/>
-        <TextBox x:Name="txtOrderQuantity" HorizontalAlignment="Left" Text="Quantity" VerticalAlignment="Top" Margin="647,203,0,0" Height="10" Width="315"/>
+        <TextBlock x:Name="lblStatus" HorizontalAlignment="Left" Margin="576,427,0,0" Text="Status message" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="383" FontSize="15" Foreground="Red"/>
+        <TextBox x:Name="txtOrderQuantity" HorizontalAlignment="Left" Text="Quantity" VerticalAlignment="Top" Margin="634,296,0,0" Height="10" Width="315"/>
 
     </Grid>
 </Page>

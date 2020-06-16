@@ -5,6 +5,15 @@ using System.Data.Common;
 using System.Configuration;
 using System.Data.SqlClient;
 
+/*
+    Author: Gijs de Blauw
+    Description: 
+        - Sets up the database connection based on input string in app.config
+        - Contains code for executing commands and retrieving data tables
+        - Prepares sql parameters 
+        - Contains an unused method for executing stored procedures
+*/
+
 namespace sdv701_selfHost
 {
     static class clsDbConnection

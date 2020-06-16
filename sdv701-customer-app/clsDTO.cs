@@ -6,14 +6,14 @@ namespace sdv701_customer_app
     {
         public class clsBrand
         {
-            //pk
+            // primary key
             public string camera_brand { get; set; }
             public string description { get; set; }
         }
 
         public class clsAllCameras
         {
-            // pk
+            // primary key
             public string model_name { get; set; }
             public string description { get; set; }
             public DateTime release_year { get; set; }
@@ -23,20 +23,20 @@ namespace sdv701_customer_app
             public string zoom_range { get; set; }
             public DateTime last_modified { get; set; }
             public string camera_type { get; set; }
-            //FK
+            // foreign key
             public string camera_brand { get; set; }
         }
 
         public class clsOrder
         {
-            //pk
+            // primary key
             public int order_id { get; set; }
             public DateTime order_date { get; set; }
             public decimal price { get; set; }
             public int quantity { get; set; }
             public string customer_name { get; set; }
             public string customer_address { get; set; }
-            // FK
+            // foreign key
             public string model_name { get; set; }
         }
     }

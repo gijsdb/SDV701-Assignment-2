@@ -5,24 +5,24 @@
     xmlns:local="using:sdv701_customer_app"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d" Width="800" Height="605">
+    mc:Ignorable="d" Width="800" Height="580">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-        <Button x:Name="btnOrder" Click="btnOrder_Click" Content="Order" HorizontalAlignment="Left" Margin="420,509,0,0" VerticalAlignment="Top" Height="63" Width="126" Background="#FF11BE1C" FontSize="36" FocusVisualPrimaryBrush="Black" Foreground="White" RenderTransformOrigin="0.5,0.524"/>
-        <Button x:Name="btnBack" Click="btnBack_Click" Content="Back" HorizontalAlignment="Left" Margin="274,509,0,0" VerticalAlignment="Top" Height="63" Width="126" Background="#FFDC9744" FontSize="36" FocusVisualPrimaryBrush="Black" Foreground="White"/>
-        <TextBlock HorizontalAlignment="Left" Text="Price" TextWrapping="Wrap" VerticalAlignment="Top" Height="46" Width="75" Margin="136,154,0,0" FontSize="30" FontWeight="Bold"/>
-        <TextBlock HorizontalAlignment="Left" Text="In Stock" TextWrapping="Wrap" VerticalAlignment="Top" Height="46" Width="135" Margin="483,154,0,0" FontSize="30" FontFamily="Segoe UI" FontWeight="Bold"/>
+        <Button x:Name="btnOrder" Click="btnOrder_Click" Content="Order" HorizontalAlignment="Left" Margin="420,494,0,0" VerticalAlignment="Top" Height="63" Width="126" Background="#FF11BE1C" FontSize="36" FocusVisualPrimaryBrush="Black" Foreground="White" RenderTransformOrigin="0.5,0.524"/>
+        <Button x:Name="btnBack" Click="btnBack_Click" Content="Back" HorizontalAlignment="Left" Margin="274,494,0,0" VerticalAlignment="Top" Height="63" Width="126" Background="#FFDC9744" FontSize="36" FocusVisualPrimaryBrush="Black" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Left" Text="Price" TextWrapping="Wrap" VerticalAlignment="Top" Height="46" Width="75" Margin="136,144,0,0" FontSize="25" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Text="In Stock" TextWrapping="Wrap" VerticalAlignment="Top" Height="46" Width="135" Margin="483,144,0,0" FontSize="25" FontFamily="Segoe UI" FontWeight="Bold"/>
 
-        <Image Source="./Assets/pointNshoot.jpeg" HorizontalAlignment="Left" Height="168" VerticalAlignment="Top" Width="269" Margin="122,272,0,0" RenderTransformOrigin="0.5,0.5" Stretch="Fill">
+        <Image Source="./Assets/pointNshoot.jpeg" HorizontalAlignment="Left" Height="168" VerticalAlignment="Top" Width="269" Margin="122,240,0,0" RenderTransformOrigin="0.5,0.5" Stretch="Fill">
             <Image.RenderTransform>
                 <CompositeTransform ScaleX="-1"/>
             </Image.RenderTransform>
         </Image>
-        <TextBlock x:Name="lblDescription" HorizontalAlignment="Left" Margin="136,62,0,0" Text="Description" TextWrapping="Wrap" FontSize="25" VerticalAlignment="Top" Height="80" Width="504"/>
-        <TextBlock x:Name="lblPrice" HorizontalAlignment="Left" Margin="122,199,0,0" Text="camera price" TextWrapping="Wrap" FontSize="25" VerticalAlignment="Top" RenderTransformOrigin="0.531,0.606"/>
-        <TextBlock x:Name="lblQuantity" HorizontalAlignment="Left" Margin="483,199,0,0" Text="Camera quantity" TextWrapping="Wrap" FontSize="25" VerticalAlignment="Top"/>
+        <TextBlock x:Name="lblDescription" HorizontalAlignment="Left" Margin="136,62,0,0" Text="Description" TextWrapping="Wrap" FontSize="20" VerticalAlignment="Top" Height="76" Width="504"/>
+        <TextBlock x:Name="lblPrice" HorizontalAlignment="Left" Margin="136,182,0,0" Text="camera price" TextWrapping="Wrap" FontSize="20" VerticalAlignment="Top" RenderTransformOrigin="0.531,0.606"/>
+        <TextBlock x:Name="lblQuantity" HorizontalAlignment="Left" Margin="483,177,0,0" Text="Camera quantity" TextWrapping="Wrap" FontSize="20" VerticalAlignment="Top"/>
         <TextBlock x:Name="lblModel" HorizontalAlignment="Left" Text="Camera Model" TextWrapping="Wrap" VerticalAlignment="Top" Height="41" Width="311" Margin="256,10,0,0" FontSize="35" FontWeight="Bold"/>
-        <ContentControl x:Name="ctcInheritance" Content="Content" Margin="420,240,40,134"/>
-        <TextBlock x:Name="lblStatus" HorizontalAlignment="Left" Text="Status message" TextWrapping="Wrap" VerticalAlignment="Top" Height="41" Width="609" Margin="122,445,0,0" FontSize="25"/>
+        <ContentControl x:Name="ctcInheritance" Content="Content" Margin="483,240,40,143"/>
+        <TextBlock x:Name="lblStatus" HorizontalAlignment="Left" Text="Status message" TextWrapping="Wrap" VerticalAlignment="Top" Height="41" Width="609" Margin="122,445,0,0" FontSize="20"/>
     </Grid>
 </Page>

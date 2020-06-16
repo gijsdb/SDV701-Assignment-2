@@ -3,6 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 
+/*
+    Author: Gijs de Blauw
+    Description: 
+        - Picks up on API requests and executes corresponding SQL statements.
+*/
+
 namespace sdv701_selfHost
 {
     public class CameraController : System.Web.Http.ApiController 

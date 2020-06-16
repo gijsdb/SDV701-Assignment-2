@@ -6,13 +6,15 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Navigation;
 using static sdv701_customer_app.clsDTO;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
+/*
+    Author: Gijs de Blauw
+    Description: 
+        - Retrieves camera models for a brand from API 
+        - Can navigate back to brands and to a specific camera
+*/
 
 namespace sdv701_customer_app
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class pgModels : Page
     {
         #region Variables

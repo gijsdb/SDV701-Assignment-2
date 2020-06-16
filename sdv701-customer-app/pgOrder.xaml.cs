@@ -7,13 +7,16 @@ using Windows.UI.Popups;
 using Windows.UI.Xaml.Navigation;
 using static sdv701_customer_app.clsDTO;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
+/*
+    Author: Gijs de Blauw
+    Description: 
+        - Can place an order for a specific camera
+        - Updates quantity to check availability, if successful an order is placed
+        - On succesful order, option to navigate back to camera brands page
+*/
 
 namespace sdv701_customer_app
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class pgOrder : Page
     {
         public pgOrder()

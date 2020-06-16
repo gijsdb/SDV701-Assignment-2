@@ -5,13 +5,16 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using static sdv701_customer_app.clsDTO;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
+/*
+    Author: Gijs de Blauw
+    Description: 
+        - Displays specific Camera with different user controls for DSLR / PointNShoot attribute
+        - Retrieves camera data from API
+        - Can navigate back and to order 
+*/
 
 namespace sdv701_customer_app
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class pgCamera : Page
     {
         #region Constructor

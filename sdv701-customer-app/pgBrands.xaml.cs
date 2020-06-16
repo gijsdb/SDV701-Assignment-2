@@ -2,13 +2,15 @@
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
+/*
+    Author: Gijs de Blauw
+    Description: 
+        - Contains the brand list from API
+        - UI controls for navigating to models page
+*/
 
 namespace sdv701_customer_app
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class pgBrands : Page
     {
         #region Constructor

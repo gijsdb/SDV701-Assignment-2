@@ -5,8 +5,8 @@ using System.Windows.Forms;
     Author: Gijs de Blauw
     Description: 
         - Displays camera models, retrieves from API
-        - Can navigate to view order form from here
-        - Can navigate to model form from here.
+        - Can navigate to view order form
+        - Can navigate to model form 
 */
 
 namespace sdv701_admin_app

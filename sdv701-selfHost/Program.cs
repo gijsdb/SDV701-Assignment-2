@@ -1,10 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.SelfHost;
+
+/*
+    Author: Gijs de Blauw
+    Description: 
+        - The command window that hosts the API on a specified address.
+*/
 
 namespace sdv701_selfHost
 {

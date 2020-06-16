@@ -5,6 +5,12 @@ using System.Threading.Tasks;
 using System.Net.Http;
 using static sdv701_customer_app.clsDTO;
 
+/*
+    Author: Gijs de Blauw
+    Description: 
+        - All the actions for the API
+*/
+
 namespace sdv701_customer_app
 {
     public static class ServiceClient

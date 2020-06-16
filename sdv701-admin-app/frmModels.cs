@@ -34,7 +34,7 @@ namespace sdv701_admin_app
 
         public clsBrand Brand { get => _Brand; set => _Brand = value; }
         public List<clsAllCameras> ModelList { get => _ModelList; set => _ModelList = value; }
-
+        private ColumnHeader SortingColumn = null;
         #endregion
 
         #region Methods
@@ -175,7 +175,7 @@ namespace sdv701_admin_app
             UpdateDisplay();
         }
 
-        private ColumnHeader SortingColumn = null;
+       
         private void lstCameraModels_ColumnClick(object sender, ColumnClickEventArgs e)
         {
             ColumnHeader new_sorting_column = lstCameraModels.Columns[e.Column];
